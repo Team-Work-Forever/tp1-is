@@ -2,16 +2,15 @@ from helpers.xml_exporter import XmlExporter
 from .entity import Entity
 
 class Wine(Entity):
-    def __init__(self, price, designation, country_id, region_id):
+    def __init__(self, price, designation, country_id, region_id, variaty, winery):
         super().__init__()
 
         self._price = price
         self._designation = designation
         self._country_id = country_id
         self._region_id = region_id
-        
-        # if region_2_id != '':
-        #     self._region_2_id = region_2_id
+        self._variaty = variaty
+        self._winery = winery
 
     def get_price(self):
         return self._price
@@ -27,6 +26,12 @@ class Wine(Entity):
     
     def get_region_2_id(self):
         return self._region_2_id
+    
+    def get_variaty(self):
+        return self._variaty
+    
+    def get_winery(self):
+        return self._winery
     
     def to_xml(self, xmlConverter: XmlExporter):
         return xmlConverter.convertWine(self)

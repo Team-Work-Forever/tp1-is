@@ -15,7 +15,8 @@ class XmlExporter():
         el.set("designation", wine.get_designation())
         el.set("country_id", str(wine.get_country_id()))
         el.set("region_id", str(wine.get_region_id()))
-        # el.set("region_2_id", str(wine.get_region_2_id()))
+        el.set("variaty", str(wine.get_variaty()))
+        el.set("winery", str(wine.get_winery()))
 
         return el
 
@@ -40,12 +41,13 @@ class XmlExporter():
         el = self._default_converter(taster, "Taster")
 
         el.set("name", str(taster.get_name()))
+        el.set("twitter_handle", str(taster.get_twitter_handle()))
 
         return el
 
     def convertRegion(self, region) -> ET:
         el = self._default_converter(region, "Region")
 
-        el.set("region1", region.get_region())
+        el.set("region", region.get_region())
 
         return el

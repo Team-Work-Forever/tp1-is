@@ -24,6 +24,10 @@ class CSVReader:
         entities = {}
 
         for row in self.loop():
+            print(row)
+            if any(row[value] == '' for value in row):
+                continue
+
             for attr_i in attr:
                 e = row[attr_i].strip()
 
