@@ -4,7 +4,7 @@ from .entity import Entity
 class Country(Entity):
 
     def __init__(self, name) -> None:
-        super().__init__()
+        super().__init__("country")
 
         self._name = name
 

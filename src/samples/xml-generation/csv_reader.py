@@ -13,37 +13,30 @@ class CSVReader:
                 yield row
         file.close()
 
-    def has_empty_value(self, row):
-        for value in row[1:]:
-            if value == '':
-                return True
+    # def has_empty_value(self, row):
+    #     for value in row[1:]:
+    #         if value == '':
+    #             return True
             
-        return False
+    #     return False
 
-    def read(self):
-        entries = []
+    # def read(self):
+    #     entries = []
 
-        for row in self.loop():
-            if any(row[value] == '' for value in row):
-                continue
+    #     for row in self.loop():
+    #         if any(row[value] == '' for value in row):
+    #             continue
             
-            entries.append(row)
+    #         entries.append(row)
             
-        return entries
+    #     return entries
                 
     def read_entities(self, attr, builder, after_create=None):
         entities = {}
-
         for row in self.loop():
-            print(row)
-            if any(row[value] == '' for value in row):
-                continue
-
-            for attr_i in attr:
-                e = row[attr_i].strip()
-
-                if e not in entities:
-                    entities[e] = builder(row)
-                    after_create is not None and after_create(entities[e], row)
+            e = row[attr]
+            if e not in entities:
+                entities[e] = builder(row)
+                after_create is not None and after_create(entities[e], row)
 
         return entities

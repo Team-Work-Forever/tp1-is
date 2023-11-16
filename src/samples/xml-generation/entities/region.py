@@ -4,7 +4,7 @@ from .entity import Entity
 class Region(Entity):
 
     def __init__(self, country_id, region):
-        super().__init__()
+        super().__init__("region")
 
         self._country_id = country_id
         self._region = region

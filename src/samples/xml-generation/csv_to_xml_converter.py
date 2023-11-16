@@ -19,13 +19,13 @@ class CSVtoXMLConverter:
 
     def read_countries(self):
         return self._reader.read_entities(
-            attr=["country"],
+            attr="country",
             builder=lambda row: Country(row["country"])
         )
     
     def read_region(self, countries):
         return self._reader.read_entities(
-            attr=["region_1"],
+            attr="region_1",
             builder=lambda row: Region(
                 countries[row["country"]].get_id(),
                 row["region_1"])
@@ -33,7 +33,7 @@ class CSVtoXMLConverter:
     
     def read_wine(self, countries, regions):
         return self._reader.read_entities(
-            attr=["designation"],
+            attr="designation",
             builder=lambda row: Wine(
                 row["price"], 
                 row["designation"],
@@ -45,7 +45,7 @@ class CSVtoXMLConverter:
     
     def read_taster(self):
         return self._reader.read_entities(
-            attr=["taster_name"],
+            attr="taster_name",
             builder=lambda row: Taster(
                 row["taster_name"],
                 row["taster_twitter_handle"])
@@ -54,7 +54,7 @@ class CSVtoXMLConverter:
     def read_review(self, tasters, wines):
 
         return self._reader.read_entities(
-            attr=["points"],
+            attr="points",
             builder=lambda row: 
                 Review(
                     tasters[row["taster_name"]].get_id(),
@@ -72,7 +72,6 @@ class CSVtoXMLConverter:
 
         wines = self.read_wine(countries, regions)
         reviews = self.read_review(tasters, wines)
-
 
         root_el = ET.Element("WineReviews")
 
@@ -97,7 +96,8 @@ class CSVtoXMLConverter:
 
         reviews_el = ET.Element("Reviews")
         for review in reviews.values():
-            reviews_el.append(review.to_xml(xml_converter))
+            review_parent = review.to_xml(xml_converter)
+            reviews_el.append(review_parent)
 
         root_el.append(countries_el)
         root_el.append(wines_el)

@@ -4,7 +4,7 @@ from .entity import Entity
 class Review(Entity):
 
     def __init__(self, taster_id, wine_id, points, description) -> None:
-        super().__init__()
+        super().__init__("review")
 
         self._taster_id = taster_id
         self._wine_id = wine_id

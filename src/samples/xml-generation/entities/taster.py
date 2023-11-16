@@ -4,7 +4,7 @@ from .entity import Entity
 class Taster(Entity):
 
     def __init__(self, name: str, twitter_handle: str):
-        super().__init__()
+        super().__init__("taster")
 
         self._name = name
         self._twitter_handle = twitter_handle

@@ -3,7 +3,7 @@ from .entity import Entity
 
 class Wine(Entity):
     def __init__(self, price, designation, country_id, region_id, variaty, winery):
-        super().__init__()
+        super().__init__("wine")
 
         self._price = price
         self._designation = designation

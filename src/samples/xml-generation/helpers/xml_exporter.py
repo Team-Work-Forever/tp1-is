@@ -33,7 +33,10 @@ class XmlExporter():
         el.set("taster_id", str(review.get_taster_id()))
         el.set("wine_id", str(review.get_wine_id()))
         el.set("points", str(review.get_points()))
-        el.set("description", review.get_description())
+
+        description_el = ET.Element("ReviewDescription")
+        description_el.text = review.get_description()
+        el.append(description_el)
 
         return el
 
