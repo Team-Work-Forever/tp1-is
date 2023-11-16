@@ -13,6 +13,8 @@ services:
     build: docker/images/python
     volumes:
       - "./src/rpc-server:/app"
+    ports:
+      - 9000:9000
     depends_on:
       - db
 

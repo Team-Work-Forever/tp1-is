@@ -4,6 +4,7 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 
 from functions.string_length import string_length
 from functions.string_reverse import string_reverse
+from functions.convert_to_xml import to_xml
 
 
 class RequestHandler(SimpleXMLRPCRequestHandler):
@@ -30,6 +31,7 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as ser
     signal.signal(signal.SIGINT, signal_handler)
 
     # register both functions
+    server.register_function(to_xml)
     server.register_function(string_reverse)
     server.register_function(string_length)
 
