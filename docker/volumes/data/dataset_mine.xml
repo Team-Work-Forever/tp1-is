@@ -1,0 +1,340 @@
+<?xml version="1.0" ?>
+<WineReviews>
+	<Countries>
+		<Country id="1" name="US"/>
+	</Countries>
+	<Tasters>
+		<Taster id="1" name="Paul Gregutt" twitter_handle="@paulgwine "/>
+		<Taster id="2" name="Virginie Boone" twitter_handle="@vboone"/>
+		<Taster id="3" name="Matt Kettmann" twitter_handle="@mattkettmann"/>
+		<Taster id="4" name="Sean P. Sullivan" twitter_handle="@wawinereport"/>
+		<Taster id="5" name="Jim Gordon" twitter_handle="@gordone_cellars"/>
+		<Taster id="6" name="Roger Voss" twitter_handle="@vossroger"/>
+		<Taster id="7" name="Susan Kostrzewa" twitter_handle="@suskostrzewa"/>
+		<Taster id="8" name="Joe Czerwinski" twitter_handle="@JoeCz"/>
+		<Taster id="9" name="Michael Schachner" twitter_handle="@wineschach"/>
+		<Taster id="10" name="Lauren Buzzeo" twitter_handle="@laurbuzz"/>
+		<Taster id="11" name="Christina Pickard" twitter_handle="@winewchristina"/>
+	</Tasters>
+	<Regions>
+		<Region id="1" region="Willamette Valley"/>
+		<Region id="2" region="Napa Valley"/>
+		<Region id="3" region="Paso Robles"/>
+		<Region id="4" region="Sonoma Coast"/>
+		<Region id="5" region="McMinnville"/>
+		<Region id="6" region="Columbia Valley (WA)"/>
+		<Region id="7" region="Santa Ynez Valley"/>
+		<Region id="8" region="Alexander Valley"/>
+		<Region id="9" region="Howell Mountain"/>
+		<Region id="10" region="Calistoga"/>
+		<Region id="11" region="Eola-Amity Hills"/>
+		<Region id="12" region="Knights Valley"/>
+		<Region id="13" region="Sonoma County"/>
+		<Region id="14" region="Santa Clara Valley"/>
+		<Region id="15" region="Yountville"/>
+		<Region id="16" region="Spring Mountain District"/>
+		<Region id="17" region="Santa Lucia Highlands"/>
+		<Region id="18" region="Monterey"/>
+		<Region id="19" region="Carmel Valley"/>
+		<Region id="20" region="Edna Valley"/>
+		<Region id="21" region="Russian River Valley"/>
+		<Region id="22" region="Nevada County"/>
+		<Region id="23" region="Arroyo Seco"/>
+		<Region id="24" region="Dry Creek Valley"/>
+		<Region id="25" region="Dundee Hills"/>
+		<Region id="26" region="Diamond Mountain District"/>
+		<Region id="27" region="Finger Lakes"/>
+		<Region id="28" region="Walla Walla Valley (WA)"/>
+		<Region id="29" region="California"/>
+		<Region id="30" region="Wahluke Slope"/>
+		<Region id="31" region="Templeton Gap District"/>
+		<Region id="32" region="Snipes Mountain"/>
+		<Region id="33" region="Santa Barbara County"/>
+		<Region id="34" region="Sonoma Valley"/>
+		<Region id="35" region="Ribbon Ridge"/>
+		<Region id="36" region="Red Mountain"/>
+		<Region id="37" region="El Dorado"/>
+		<Region id="38" region="Suisun Valley"/>
+		<Region id="39" region="Lodi"/>
+		<Region id="40" region="Monterey County"/>
+		<Region id="41" region="Chiles Valley"/>
+		<Region id="42" region="Calaveras County"/>
+		<Region id="43" region="Chehalem Mountains"/>
+		<Region id="44" region="Horse Heaven Hills"/>
+		<Region id="45" region="Arroyo Grande Valley"/>
+		<Region id="46" region="Oregon"/>
+		<Region id="47" region="Umpqua Valley"/>
+		<Region id="48" region="Santa Maria Valley"/>
+		<Region id="49" region="Ballard Canyon"/>
+		<Region id="50" region="Green Valley"/>
+		<Region id="51" region="Carneros"/>
+		<Region id="52" region="Sierra Foothills"/>
+		<Region id="53" region="Sta. Rita Hills"/>
+		<Region id="54" region="Central Coast"/>
+		<Region id="55" region="Yakima Valley"/>
+		<Region id="56" region="Columbia Gorge (WA)"/>
+		<Region id="57" region="Santa Cruz Mountains"/>
+		<Region id="58" region="Rogue Valley"/>
+		<Region id="59" region="Mokelumne River"/>
+		<Region id="60" region="Mount Veeder"/>
+		<Region id="61" region="Rockpile"/>
+		<Region id="62" region="Livermore Valley"/>
+		<Region id="63" region="Temecula Valley"/>
+		<Region id="64" region="Rutherford"/>
+		<Region id="65" region="Ancient Lakes"/>
+		<Region id="66" region="Shenandoah Valley (CA)"/>
+		<Region id="67" region="Amador County"/>
+		<Region id="68" region="Yorkville Highlands"/>
+		<Region id="69" region="Happy Canyon of Santa Barbara"/>
+		<Region id="70" region="Walla Walla Valley (OR)"/>
+		<Region id="71" region="Yolo County"/>
+		<Region id="72" region="Naches Heights"/>
+		<Region id="73" region="Sonoma Mountain"/>
+		<Region id="74" region="Bennett Valley"/>
+		<Region id="75" region="Paso Robles Willow Creek District"/>
+		<Region id="76" region="Fair Play"/>
+		<Region id="77" region="Dunnigan Hills"/>
+		<Region id="78" region="St. Helena"/>
+		<Region id="79" region="Oakville"/>
+		<Region id="80" region="Southern Oregon"/>
+		<Region id="81" region="Applegate Valley"/>
+		<Region id="82" region="San Luis Obispo County"/>
+		<Region id="83" region="Washington"/>
+		<Region id="84" region="Columbia Valley (OR)"/>
+		<Region id="85" region="Contra Costa County"/>
+		<Region id="86" region="Chalk Hill"/>
+		<Region id="87" region="Cucamonga Valley"/>
+		<Region id="88" region="North Coast"/>
+		<Region id="89" region="Placer County"/>
+		<Region id="90" region="Solano County"/>
+		<Region id="91" region="Adelaida District"/>
+		<Region id="92" region="Columbia Gorge (OR)"/>
+		<Region id="93" region="Lake Chelan"/>
+		<Region id="94" region="Rattlesnake Hills"/>
+		<Region id="95" region="El Dorado County"/>
+		<Region id="96" region="Napa County"/>
+		<Region id="97" region="Fort Ross-Seaview"/>
+		<Region id="98" region="Mt. Harlan"/>
+		<Region id="99" region="Temecula"/>
+		<Region id="100" region="Stags Leap District"/>
+		<Region id="101" region="South Coast"/>
+		<Region id="102" region="San Antonio Valley"/>
+		<Region id="103" region="Sonoma County-Napa County"/>
+		<Region id="104" region="San Luis Obispo"/>
+		<Region id="105" region="San Bernabe"/>
+		<Region id="106" region="Fiddletown"/>
+		<Region id="107" region="Ben Lomond Mountain"/>
+		<Region id="108" region="Marin County"/>
+		<Region id="109" region="Clarksburg"/>
+		<Region id="110" region="Los Carneros"/>
+		<Region id="111" region="North Fork of Long Island"/>
+		<Region id="112" region="Sonoma-Napa"/>
+		<Region id="113" region="Coombsville"/>
+		<Region id="114" region="Santa Barbara"/>
+		<Region id="115" region="Chalone"/>
+		<Region id="116" region="Chelan County"/>
+		<Region id="117" region="Saddle Rock-Malibu"/>
+		<Region id="118" region="Atlas Peak"/>
+		<Region id="119" region="Moon Mountain District Sonoma County"/>
+		<Region id="120" region="Santa Clara County"/>
+		<Region id="121" region="Northern Sonoma"/>
+		<Region id="122" region="The Hamptons, Long Island"/>
+		<Region id="123" region="Carneros-Napa Valley"/>
+		<Region id="124" region="Oak Knoll District"/>
+		<Region id="125" region="El Pomar District"/>
+		<Region id="126" region="Santa Margarita Ranch"/>
+		<Region id="127" region="Malibu Coast"/>
+		<Region id="128" region="San Benito County"/>
+		<Region id="129" region="San Francisco Bay"/>
+		<Region id="130" region="Elkton Oregon"/>
+		<Region id="131" region="Sonoma-Mendocino"/>
+		<Region id="132" region="Alta Mesa"/>
+		<Region id="133" region="New York"/>
+		<Region id="134" region="Cayuga Lake"/>
+		<Region id="135" region="Sonoma County-Monterey County"/>
+		<Region id="136" region="Humboldt County"/>
+		<Region id="137" region="Sierra Pelona Valley"/>
+		<Region id="138" region="Ventura County"/>
+		<Region id="139" region="Mendocino-Lake"/>
+		<Region id="140" region="Monterey-Santa Cruz"/>
+		<Region id="141" region="Cienega Valley"/>
+		<Region id="142" region="Madera"/>
+		<Region id="143" region="Puget Sound"/>
+		<Region id="144" region="Clements Hills"/>
+		<Region id="145" region="Sonoma County-San Joaquin County"/>
+		<Region id="146" region="Long Island"/>
+		<Region id="147" region="Tuolumne County"/>
+		<Region id="148" region="San Francisco Bay-Livermore Valley"/>
+		<Region id="149" region="Yamhill County"/>
+		<Region id="150" region="Columbia Valley-Walla Walla Valley"/>
+		<Region id="151" region="Pine Mountain-Cloverdale Peak"/>
+		<Region id="152" region="Paicines"/>
+		<Region id="153" region="Sonoma County-Monterey County-Napa County"/>
+		<Region id="154" region="Tehama County"/>
+		<Region id="155" region="Ramona Valley"/>
+		<Region id="156" region="Hudson River Region"/>
+		<Region id="157" region="Sonoma County-Monterey County-Santa Barbara County"/>
+		<Region id="158" region="Sonoma"/>
+		<Region id="159" region="Monterey County-Napa County-Sonoma County"/>
+		<Region id="160" region="Napa County-Sonoma County-San Joaquin County"/>
+		<Region id="161" region="Napa County-Sonoma County"/>
+		<Region id="162" region="River Junction"/>
+		<Region id="163" region="Napa County-Sonoma County-Lake County"/>
+		<Region id="164" region="Capay Valley"/>
+		<Region id="165" region="Napa-Carneros"/>
+		<Region id="166" region="Malibu-Newton Canyon"/>
+		<Region id="167" region="San Lucas"/>
+		<Region id="168" region="Sonoma County-Lake County"/>
+		<Region id="169" region="York Mountain"/>
+		<Region id="170" region="San Diego County"/>
+		<Region id="171" region="Sonoma-Napa-Lake"/>
+	</Regions>
+	<Wines>
+		<Wine id="1" price="65.0" designation="Vintner's Reserve Wild Child Block" country_id="1" region_id="1" variaty="Pinot Noir" winery="Sweet Cheeks"/>
+		<Wine id="2" price="19.0" designation="Mountain Cuvée" country_id="1" region_id="1" variaty="Cabernet Sauvignon" winery="Kirkland Signature"/>
+		<Wine id="3" price="22.0" designation="Signature Selection" country_id="1" region_id="1" variaty="Merlot" winery="Bianchi"/>
+		<Wine id="4" price="69.0" designation="King Ridge Vineyard" country_id="1" region_id="1" variaty="Cabernet Franc" winery="Castello di Amorosa"/>
+		<Wine id="5" price="50.0" designation="Hyland" country_id="1" region_id="1" variaty="Sauvignon Blanc" winery="Erath"/>
+		<Wine id="6" price="100.0" designation="Estate" country_id="1" region_id="1" variaty="Bordeaux-style Red Blend" winery="Okapi"/>
+		<Wine id="7" price="25.0" designation="Alder Ridge Vineyard" country_id="1" region_id="1" variaty="Petite Sirah" winery="Ram"/>
+		<Wine id="8" price="26.0" designation="Golden Horn" country_id="1" region_id="1" variaty="Zinfandel" winery="Sevtap"/>
+		<Wine id="9" price="46.0" designation="Inspired" country_id="1" region_id="1" variaty="Red Blend" winery="Basel Cellars"/>
+		<Wine id="10" price="40.0" designation="Old Vine" country_id="1" region_id="1" variaty="Meritage" winery="Eco Terreno"/>
+		<Wine id="11" price="75.0" designation="Bella Vetta Vineyard" country_id="1" region_id="1" variaty="Viognier" winery="Hindsight"/>
+		<Wine id="12" price="55.0" designation="Estate Grown" country_id="1" region_id="1" variaty="Grenache Blanc" winery="Mulvane Wine Co."/>
+		<Wine id="13" price="24.0" designation="The Cypher" country_id="1" region_id="1" variaty="Rhône-style Red Blend" winery="Z'IVO"/>
+		<Wine id="14" price="23.0" designation="Rosé of" country_id="1" region_id="1" variaty="Syrah" winery="Napa Cellars"/>
+		<Wine id="15" price="85.0" designation="Classic" country_id="1" region_id="1" variaty="Riesling" winery="Passaggio"/>
+		<Wine id="16" price="18.0" designation="Blau Vineyards" country_id="1" region_id="1" variaty="G-S-M" winery="Ferrari-Carano"/>
+		<Wine id="17" price="64.0" designation="Siena" country_id="1" region_id="1" variaty="Chardonnay" winery="Franciscan"/>
+		<Wine id="18" price="68.0" designation="Magnificat" country_id="1" region_id="1" variaty="Gewürztraminer" winery="Gård"/>
+		<Wine id="19" price="35.0" designation="Grand Klasse Reserve Lawrence Vineyards" country_id="1" region_id="1" variaty="White Blend" winery="Soquel Vineyards"/>
+		<Wine id="20" price="28.0" designation="Intreccio Library Selection" country_id="1" region_id="1" variaty="Tempranillo" winery="Martin Ranch"/>
+		<Wine id="21" price="95.0" designation="J.D. Hurley" country_id="1" region_id="1" variaty="Pinot Blanc" winery="Piña"/>
+		<Wine id="22" price="44.0" designation="Wolff Vineyard" country_id="1" region_id="1" variaty="Verdelho" winery="Pull"/>
+		<Wine id="23" price="60.0" designation="BDX" country_id="1" region_id="1" variaty="Grenache" winery="R2"/>
+		<Wine id="24" price="30.0" designation="Camp 4 Vineyard" country_id="1" region_id="1" variaty="Marsanne" winery="Terra Valentine"/>
+		<Wine id="25" price="32.0" designation="K Block" country_id="1" region_id="1" variaty="Sparkling Blend" winery="Testarossa"/>
+		<Wine id="26" price="48.0" designation="Guidotti Vineyard" country_id="1" region_id="1" variaty="Sangiovese" winery="Vincent Vineyards"/>
+		<Wine id="27" price="36.0" designation="Family Reserve" country_id="1" region_id="1" variaty="Syrah-Grenache" winery="Wrath"/>
+		<Wine id="28" price="45.0" designation="Destruction Level" country_id="1" region_id="1" variaty="Malbec" winery="Yardstick"/>
+		<Wine id="29" price="39.0" designation="Ruth's Reach" country_id="1" region_id="1" variaty="Grüner Veltliner" winery="Albatross Ridge"/>
+		<Wine id="30" price="52.0" designation="Estate Reserve" country_id="1" region_id="1" variaty="Rosé" winery="Alta Colina"/>
+		<Wine id="31" price="14.0" designation="Old 900" country_id="1" region_id="1" variaty="Pinot Gris" winery="Chronic Cellars"/>
+		<Wine id="32" price="200.0" designation="Mr. Nibbles" country_id="1" region_id="1" variaty="Muscat Blanc à Petits Grains" winery="Claiborne &amp; Churchill"/>
+		<Wine id="33" price="20.0" designation="Claiborne Vineyard" country_id="1" region_id="1" variaty="Petit Verdot" winery="Duckhorn"/>
+		<Wine id="34" price="42.0" designation="Rector Creek Vineyard" country_id="1" region_id="1" variaty="Pinot Meunier" winery="Dutton-Goldfield"/>
+		<Wine id="35" price="16.0" designation="Dutton Ranch" country_id="1" region_id="1" variaty="Cabernet Sauvignon-Sangiovese" winery="Sequum"/>
+		<Wine id="36" price="27.0" designation="Four Soil Mélange" country_id="1" region_id="1" variaty="Albariño" winery="Sierra Starr"/>
+		<Wine id="37" price="54.0" designation="Rising Starr Estate Bottled" country_id="1" region_id="1" variaty="Claret" winery="J. Lohr"/>
+		<Wine id="38" price="29.0" designation="Gesture" country_id="1" region_id="1" variaty="Syrah-Viognier" winery="Del Carlo Winery"/>
+		<Wine id="39" price="15.0" designation="October Night" country_id="1" region_id="1" variaty="Barbera" winery="MCV"/>
+		<Wine id="40" price="90.0" designation="Home Ranch Teldeschi Vineyards Century Old Vine" country_id="1" region_id="1" variaty="Teroldego" winery="Mounts"/>
+		<Wine id="41" price="49.0" designation="1105" country_id="1" region_id="1" variaty="Rhône-style White Blend" winery="Silvan Ridge"/>
+		<Wine id="42" price="38.0" designation="Verah" country_id="1" region_id="1" variaty="Sémillon" winery="Amity"/>
+		<Wine id="43" price="150.0" designation="Reserve" country_id="1" region_id="1" variaty="Marsanne-Viognier" winery="Cherry Hill"/>
+		<Wine id="44" price="62.0" designation="Estate Single Vineyard" country_id="1" region_id="1" variaty="Touriga Nacional" winery="Willamette Valley Vineyards"/>
+		<Wine id="45" price="53.0" designation="Papillon Estate" country_id="1" region_id="1" variaty="Syrah-Cabernet Sauvignon" winery="Beaver Creek"/>
+		<Wine id="46" price="70.0" designation="Fairytale" country_id="1" region_id="1" variaty="Semillon-Sauvignon Blanc" winery="J. Christopher"/>
+		<Wine id="47" price="41.0" designation="Bella Vida Vineyard Unfiltered" country_id="1" region_id="1" variaty="Sauvignon Blanc-Semillon" winery="Buried Cane"/>
+		<Wine id="48" price="37.0" designation="Whiteline No Oak" country_id="1" region_id="1" variaty="Bordeaux-style White Blend" winery="Pezzi King"/>
+		<Wine id="49" price="80.0" designation="Serracino Reserve" country_id="1" region_id="1" variaty="Roussanne" winery="Rochioli"/>
+		<Wine id="50" price="13.0" designation="South River" country_id="1" region_id="1" variaty="Primitivo" winery="J. Davies"/>
+		<Wine id="51" price="33.0" designation="Sweetwater" country_id="1" region_id="1" variaty="Moscato" winery="Winderlea"/>
+		<Wine id="52" price="105.0" designation="Jamie" country_id="1" region_id="1" variaty="Gamay Noir" winery="Kynsi"/>
+		<Wine id="53" price="125.0" designation="Weber Vineyard" country_id="1" region_id="1" variaty="Gewürztraminer-Riesling" winery="McGregor"/>
+		<Wine id="54" price="17.0" designation="Paragon Vineyard" country_id="1" region_id="1" variaty="Lemberger" winery="Guardian"/>
+		<Wine id="55" price="34.0" designation="Dry" country_id="1" region_id="1" variaty="Cabernet Blend" winery="Kerloo"/>
+		<Wine id="56" price="72.0" designation="Confidential Source" country_id="1" region_id="1" variaty="Mourvèdre" winery="Las Positas"/>
+		<Wine id="57" price="58.0" designation="Blue Mountain Vineyard" country_id="1" region_id="1" variaty="Nebbiolo" winery="Milbrandt"/>
+		<Wine id="58" price="120.0" designation="Verdigris" country_id="1" region_id="1" variaty="Vermentino" winery="Ojai"/>
+		<Wine id="59" price="56.0" designation="The Estates Clifton Hill Vineyard" country_id="1" region_id="1" variaty="Colombard" winery="ONX"/>
+		<Wine id="60" price="115.0" designation="McGinley Vineyard" country_id="1" region_id="1" variaty="Carmenère" winery="Pomum"/>
+		<Wine id="61" price="10.0" designation="Indie" country_id="1" region_id="1" variaty="Muskat" winery="Prospect 772"/>
+		<Wine id="62" price="98.0" designation="Upland Vineyard" country_id="1" region_id="1" variaty="Chenin Blanc" winery="Trione"/>
+		<Wine id="63" price="175.0" designation="Stepping Stones" country_id="1" region_id="1" variaty="Fumé Blanc" winery="Dunbar"/>
+		<Wine id="64" price="110.0" designation="Henry's Blend" country_id="1" region_id="1" variaty="Cabernet Franc-Merlot" winery="Chehalem"/>
+		<Wine id="65" price="11.0" designation="Ridgecrest Vineyards" country_id="1" region_id="1" variaty="Cabernet Sauvignon-Syrah" winery="Domaine Serene"/>
+		<Wine id="66" price="21.0" designation="Stoller Vineyards" country_id="1" region_id="1" variaty="Vidal Blanc" winery="Sparkman"/>
+		<Wine id="67" price="12.0" designation="Evenstad Reserve" country_id="1" region_id="1" variaty="Grenache-Syrah" winery="Lava Cap"/>
+		<Wine id="68" price="9.0" designation="Stella Mae" country_id="1" region_id="1" variaty="Pinot Grigio" winery="MICA Cellars"/>
+		<Wine id="69" price="43.0" designation="Battonage" country_id="1" region_id="1" variaty="Chardonnay-Semillon" winery="Fenestra"/>
+		<Wine id="70" price="260.0" designation="Babcock Vineyard" country_id="1" region_id="1" variaty="Graciano" winery="Camaraderie"/>
+		<Wine id="71" price="59.0" designation="Silvaspoons Vineyard" country_id="1" region_id="1" variaty="Cinsault" winery="Beringer"/>
+		<Wine id="72" price="31.0" designation="Clifton Vineyard" country_id="1" region_id="1" variaty="Charbono" winery="Big Basin"/>
+		<Wine id="73" price="47.0" designation="Quantum" country_id="1" region_id="1" variaty="Syrah-Mourvèdre" winery="Conn Creek"/>
+		<Wine id="74" price="88.0" designation="Coastview Vineyard" country_id="1" region_id="1" variaty="Dolcetto" winery="D.R. Stephens"/>
+		<Wine id="75" price="66.0" designation="El Adobo Ranch Vineyard" country_id="1" region_id="1" variaty="Mondeuse" winery="Davis Family"/>
+		<Wine id="76" price="67.0" designation="Silver Eagle Vineyard" country_id="1" region_id="1" variaty="Mourvèdre-Syrah" winery="Qupé"/>
+		<Wine id="77" price="155.0" designation="Soul Patch Estate Grown" country_id="1" region_id="1" variaty="Clairette" winery="Rex Hill"/>
+		<Wine id="78" price="135.0" designation="Starr Ridge Vineyard" country_id="1" region_id="1" variaty="Scheurebe" winery="Ruby"/>
+		<Wine id="79" price="190.0" designation="The Brat" country_id="1" region_id="1" variaty="Muscat Canelli" winery="Structure"/>
+		<Wine id="80" price="8.0" designation="Doux Sawyer Lindquist Vineyard" country_id="1" region_id="1" variaty="Auxerrois" winery="Tumwater"/>
+		<Wine id="81" price="140.0" designation="Sawyer Lindquist Vineyard" country_id="1" region_id="1" variaty="Grenache Blend" winery="Joseph Jewell"/>
+		<Wine id="82" price="84.0" designation="Sims Vineyard" country_id="1" region_id="1" variaty="Sagrantino" winery="Le Cadeau"/>
+		<Wine id="83" price="96.0" designation="Steve's Reserve" country_id="1" region_id="1" variaty="Merlot-Cabernet Sauvignon" winery="Le Vigne"/>
+		<Wine id="84" price="145.0" designation="Wallula" country_id="1" region_id="1" variaty="Aligoté" winery="Paul O'Brien"/>
+		<Wine id="85" price="76.0" designation="Rincon Vineyard" country_id="1" region_id="1" variaty="Sangiovese Cabernet" winery="Flying Goat Cellars"/>
+		<Wine id="86" price="5.0" designation="Prince Hill Vineyard Reserve" country_id="1" region_id="1" variaty="Viognier-Roussanne" winery="Midsummer Cellars"/>
+		<Wine id="87" price="61.0" designation="Bucher Vineyard" country_id="1" region_id="1" variaty="Rosato" winery="Les Belles Collines"/>
+		<Wine id="88" price="165.0" designation="Blanc de Noir" country_id="1" region_id="1" variaty="Tannat" winery="Lutum"/>
+		<Wine id="89" price="195.0" designation="Diversité" country_id="1" region_id="1" variaty="Port" winery="Turiya"/>
+		<Wine id="90" price="99.0" designation="Équinoxe" country_id="1" region_id="1" variaty="Barbera-Nebbiolo" winery="Iron Horse"/>
+		<Wine id="91" price="78.0" designation="Di Domenico" country_id="1" region_id="1" variaty="Cabernet Sauvignon-Merlot" winery="Artesa"/>
+		<Wine id="92" price="57.0" designation="Bradley Vineyard" country_id="1" region_id="1" variaty="Muscat" winery="Carlisle"/>
+		<Wine id="93" price="97.0" designation="Twin Creeks Estate" country_id="1" region_id="1" variaty="Orange Muscat" winery="Sanctuary"/>
+		<Wine id="94" price="93.0" designation="Bien Nacido Vineyard" country_id="1" region_id="1" variaty="Pinotage" winery="Terre Rouge"/>
+		<Wine id="95" price="112.0" designation="Solomon Hills Vineyard" country_id="1" region_id="1" variaty="Valdiguié" winery="Limerick Lane"/>
+		<Wine id="96" price="225.0" designation="Cañon Creek Vineyard" country_id="1" region_id="1" variaty="Sherry" winery="Loring Wine Company"/>
+		<Wine id="97" price="130.0" designation="Reckoning" country_id="1" region_id="1" variaty="Roussanne-Viognier" winery="Four Lanterns"/>
+		<Wine id="98" price="63.0" designation="Les Sommets" country_id="1" region_id="1" variaty="Merlot-Cabernet Franc" winery="World's End"/>
+		<Wine id="99" price="7.0" designation="Gap's Crown Vineyard" country_id="1" region_id="1" variaty="Black Muscat" winery="W.H. Smith"/>
+		<Wine id="100" price="160.0" designation="Stolpman Vineyard" country_id="1" region_id="1" variaty="Pinot-Chardonnay" winery="Alleromb"/>
+		<Wine id="101" price="82.0" designation="Thomas Road" country_id="1" region_id="1" variaty="Merlot-Cabernet" winery="Ardor"/>
+		<Wine id="102" price="138.0" designation="Pagani Ranch" country_id="1" region_id="1" variaty="Tempranillo Blend" winery="Savage Grace"/>
+		<Wine id="103" price="500.0" designation="Enigma" country_id="1" region_id="1" variaty="Viognier-Gewürztraminer" winery="Silvertip"/>
+		<Wine id="104" price="250.0" designation="Hail Mary" country_id="1" region_id="1" variaty="Sangiovese-Cabernet Sauvignon" winery="Stevens"/>
+		<Wine id="105" price="210.0" designation="Headpruned Block" country_id="1" region_id="1" variaty="Syrah-Petite Sirah" winery="Kontos"/>
+		<Wine id="106" price="79.0" designation="Durell Vineyard" country_id="1" region_id="1" variaty="Ugni Blanc" winery="Midnight"/>
+		<Wine id="107" price="116.0" designation="Rancho Santa Rosa Vineyard" country_id="1" region_id="1" variaty="Semillon-Chardonnay" winery="Quady North"/>
+		<Wine id="108" price="74.0" designation="Fire Light" country_id="1" region_id="1" variaty="Cabernet Sauvignon-Cabernet Franc" winery="Raptor Ridge"/>
+		<Wine id="109" price="180.0" designation="Shapeshifter" country_id="1" region_id="1" variaty="Shiraz" winery="Walt"/>
+		<Wine id="110" price="51.0" designation="If Six Was Nine Reserve" country_id="1" region_id="1" variaty="Picpoul" winery="Armida"/>
+		<Wine id="111" price="625.0" designation="La Reyna Blanca Vineyard" country_id="1" region_id="1" variaty="Carignane" winery="Foxen"/>
+		<Wine id="112" price="265.0" designation="Art Den Hoed Vineyard" country_id="1" region_id="1" variaty="Tempranillo-Garnacha" winery="Niner"/>
+		<Wine id="113" price="89.0" designation="Orange Oak Ridge Vineyard" country_id="1" region_id="1" variaty="Palomino" winery="Purple Hands"/>
+		<Wine id="114" price="102.0" designation="Unfiltered Estate" country_id="1" region_id="1" variaty="Madeleine Angevine" winery="Stone The Crows"/>
+		<Wine id="115" price="92.0" designation="StevensSteel" country_id="1" region_id="1" variaty="Alvarelhão" winery="St. Amant"/>
+		<Wine id="116" price="87.0" designation="Summit View Vineyard" country_id="1" region_id="1" variaty="Viognier-Chardonnay" winery="Stoller"/>
+		<Wine id="117" price="86.0" designation="Starlight" country_id="1" region_id="1" variaty="Pinot Blanc-Pinot Noir" winery="Y Rousseau"/>
+		<Wine id="118" price="94.0" designation="Bomba" country_id="1" region_id="1" variaty="Muscat Hamburg" winery="Paradise Ridge"/>
+		<Wine id="119" price="107.0" designation="Steel-Ox" country_id="1" region_id="1" variaty="Pinot Gris-Gewürztraminer" winery="Seven Hills"/>
+		<Wine id="120" price="106.0" designation="Pinpoint Extreme" country_id="1" region_id="1" variaty="Petite Verdot" winery="Snoqualmie"/>
+		<Wine id="121" price="325.0" designation="Tina's Block Maple Vineyard" country_id="1" region_id="1" variaty="Baco Noir" winery="Truchard"/>
+		<Wine id="122" price="185.0" designation="Tinaquaic Vineyard" country_id="1" region_id="1" variaty="Blaufränkisch" winery="Array"/>
+		<Wine id="123" price="119.0" designation="Freedom Hill Vineyard" country_id="1" region_id="1" variaty="Sangiovese-Syrah" winery="Barrister"/>
+		<Wine id="124" price="73.0" designation="Three Twins Vineyard Fallen Feather" country_id="1" region_id="1" variaty="Mission" winery="Bunnell"/>
+		<Wine id="125" price="750.0" designation="Lodi Native Marian's Vineyard" country_id="1" region_id="1" variaty="Malbec-Tannat" winery="Chateau Ste. Michelle"/>
+		<Wine id="126" price="77.0" designation="Nancy's" country_id="1" region_id="1" variaty="Champagne Blend" winery="Cobb"/>
+		<Wine id="127" price="170.0" designation="Le Roi Soleil" country_id="1" region_id="1" variaty="Tempranillo-Cabernet Sauvignon" winery="Cooper-Garrod"/>
+		<Wine id="128" price="129.0" designation="Rockpile Vineyard" country_id="1" region_id="1" variaty="Malvasia Bianca" winery="Mosquito Fleet"/>
+		<Wine id="129" price="83.0" designation="McClellan Estate Vineyard" country_id="1" region_id="1" variaty="Negrette" winery="Nadia"/>
+		<Wine id="130" price="4.0" designation="Eco Made with Organic Grapes" country_id="1" region_id="1" variaty="Torrontés" winery="Nottingham Cellars"/>
+		<Wine id="131" price="81.0" designation="Dijon Clone" country_id="1" region_id="1" variaty="Symphony" winery="Woodinville Wine Cellars"/>
+		<Wine id="132" price="118.0" designation="Sagemoor" country_id="1" region_id="1" variaty="Muscat Blanc" winery="Dry Creek Vineyard"/>
+		<Wine id="133" price="219.0" designation="ALX" country_id="1" region_id="1" variaty="Garnacha Blanca" winery="Dutton Estate"/>
+		<Wine id="134" price="245.0" designation="Canoe Ridge Vineyard" country_id="1" region_id="1" variaty="Alicante Bouschet" winery="Failla"/>
+		<Wine id="135" price="350.0" designation="Emmaline Ann Vineyard" country_id="1" region_id="1" variaty="Lagrein" winery="Friedeman"/>
+		<Wine id="136" price="111.0" designation="Gravel Ridge Vineyard" country_id="1" region_id="1" variaty="Syrah-Merlot" winery="Pech Merle"/>
+		<Wine id="137" price="199.0" designation="Reserve 34" country_id="1" region_id="1" variaty="Pinot Auxerrois" winery="Monte De Oro"/>
+		<Wine id="138" price="240.0" designation="Quattro Santa Barbara Highlands Vineyard" country_id="1" region_id="1" variaty="Garnacha" winery="Patton Valley"/>
+		<Wine id="139" price="108.0" designation="Ghielmetti Vineyard Micro-lot Reserve" country_id="1" region_id="1" variaty="Cabernet-Syrah" winery="Adelsheim"/>
+		<Wine id="140" price="136.0" designation="Little Bear Creek" country_id="1" region_id="1" variaty="Grenache-Mourvèdre" winery="St. Supéry"/>
+		<Wine id="141" price="275.0" designation="DCV2 Estate Four Clones Vineyard" country_id="1" region_id="1" variaty="Johannisberg Riesling" winery="Barnard Griffin"/>
+		<Wine id="142" price="300.0" designation="Cohen Vineyard Dutton Ranch" country_id="1" region_id="1" variaty="Syrah-Tempranillo" winery="Beacon Hill"/>
+		<Wine id="143" price="220.0" designation="Keefer Ranch" country_id="1" region_id="1" variaty="Abouriou" winery="Brian Carter Cellars"/>
+		<Wine id="144" price="2013.0" designation="Dichotomy" country_id="1" region_id="1" variaty="Pinot Noir-Syrah" winery="Deerfield Ranch"/>
+		<Wine id="145" price="149.0" designation="Treborce Vineyard" country_id="1" region_id="1" variaty="Syrah-Petit Verdot" winery="Efeste"/>
+		<Wine id="146" price="168.0" designation="Reserve, Vista del Monte Vineyard" country_id="1" region_id="1" variaty="Marsanne-Roussanne" winery="Iron Hub"/>
+	</Wines>
+</WineReviews>

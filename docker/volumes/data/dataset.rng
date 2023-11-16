@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="WineReviews">
+            <element name="Countries">
+                <element name="Country">
+                    <attribute name="id">
+                        <data type="integer"/>
+                    </attribute>
+                    <attribute name="name">
+                        <data type="NCName"/>
+                    </attribute>
+                    <oneOrMore>
+                        <element name="Region">
+                            <attribute name="id">
+                                <data type="integer"/>
+                            </attribute>
+                            <attribute name="region"/>
+                        </element>
+                    </oneOrMore>
+                </element>
+            </element>
+            <element name="Wines">
+                <oneOrMore>
+                    <element name="Wine">
+                        <attribute name="country_id">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="designation"/>
+                        <attribute name="id">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="price">
+                            <data type="decimal"/>
+                        </attribute>
+                        <attribute name="region_id">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="variaty"/>
+                        <attribute name="winery"/>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="Tasters">
+                <oneOrMore>
+                    <element name="Taster">
+                        <attribute name="id">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="name"/>
+                        <attribute name="twitter_handle"/>
+                    </element>
+                </oneOrMore>
+            </element>
+            <element name="Reviews">
+                <oneOrMore>
+                    <element name="Review">
+                        <attribute name="description"/>
+                        <attribute name="id">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="points">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="taster_id">
+                            <data type="integer"/>
+                        </attribute>
+                        <attribute name="wine_id">
+                            <data type="integer"/>
+                        </attribute>
+                    </element>
+                </oneOrMore>
+            </element>
+        </element>
+    </start>
+</grammar>

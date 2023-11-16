@@ -20,6 +20,17 @@ class CSVReader:
             
         return False
 
+    def read(self):
+        entries = []
+
+        for row in self.loop():
+            if any(row[value] == '' for value in row):
+                continue
+            
+            entries.append(row)
+            
+        return entries
+                
     def read_entities(self, attr, builder, after_create=None):
         entities = {}
 
