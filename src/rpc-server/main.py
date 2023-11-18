@@ -6,7 +6,6 @@ from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileI
 from data import DbConnection
 
 dbAccess = DbConnection()
-dbAccess.connect()
 
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)

@@ -4,9 +4,9 @@ from helpers import SingletonMeta
 class DbConnection(metaclass=SingletonMeta):
 
     def __init__(self) -> None:
-        pass
+        self._connect()
 
-    def connect(self):
+    def _connect(self):
         self._connection = psycopg2.connect(user="is",
                                   password="is",
                                   host="is-db",
