@@ -2,17 +2,20 @@ import signal, sys
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 
-from functions.string_length import string_length
-from functions.string_reverse import string_reverse
-from functions.convert_to_xml import to_xml
-from data.db_access import DbConnection
+from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler
+from data import DbConnection
 
-dbAccess = DbConnection("")
+dbAccess = DbConnection()
 dbAccess.connect()
 
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
 
+register_methods = [
+    ConvertToXmlHandler(),
+    GetAllPersistedFilesHandler(),
+    GetFileInfoHandler()
+]
 
 with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as server:
     server.register_introspection_functions()
@@ -33,9 +36,8 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as ser
     signal.signal(signal.SIGINT, signal_handler)
 
     # register both functions
-    server.register_function(to_xml)
-    server.register_function(string_reverse)
-    server.register_function(string_length)
+    for method in register_methods:
+        server.register_function(method.handle, method.get_name())
 
     # start the server
     print("Starting the RPC Server...")

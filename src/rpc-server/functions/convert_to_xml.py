@@ -1,9 +1,45 @@
-from xml_generation.csv_to_xml_converter import CSVtoXMLConverter
+from functions import Handler
+from xml_generation import CSVtoXMLConverter
+from data import DbConnection
+from utils import encode_file, decode_file, store_file
 
-def to_xml(s: str):
-    converter = CSVtoXMLConverter("/data/dataset.csv")
-    converter.to_xml()
+class ConvertToXmlHandler(Handler):
+    VENDOR_FOLDER = "src/rpc-server/vendor/"
+    DATASET_PATH = "dataset.csv"
+    UPLOADS_FOLDER = "src/rpc-server/uploads/"
 
-    ## Storage xml file on postgresql
+    def __init__(self) -> None:
+        self.db_access = DbConnection()
 
-    return "E bem..."
+    def get_name(self):
+        return "upload_file_to_xml"
+
+    def handle(self, file_name: str, csv_file: str):
+        decoded_file = decode_file(csv_file)
+
+        try:
+            store_file(self.UPLOADS_FOLDER + "work_file", decoded_file)
+        except Exception as e:
+            print(e)
+            return "Error converting to XML"
+
+        converter = CSVtoXMLConverter(self.UPLOADS_FOLDER + "work_file")
+        xml_result = converter.to_xml_str()
+
+        cursor = self.db_access.get_cursor()
+
+        query = """
+            INSERT INTO imported_documents 
+            (file_name, xml)
+            VALUES 
+            (%(file_name)s, %(xml)s);
+        """
+
+        cursor.execute(query, {
+            'file_name': file_name,
+            'xml': xml_result
+        })
+
+        self.db_access.commit()
+
+        return encode_file(xml_result)

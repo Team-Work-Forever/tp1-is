@@ -1,8 +1,9 @@
 import psycopg2
+from helpers import SingletonMeta
 
-class DbConnection():
+class DbConnection(metaclass=SingletonMeta):
 
-    def __init__(self, connection_string) -> None:
+    def __init__(self) -> None:
         pass
 
     def connect(self):
@@ -12,7 +13,11 @@ class DbConnection():
                                   port="5432",
                                   database="is")
         
+    def get_cursor(self):
         return self._connection.cursor()
+    
+    def commit(self):
+        self._connection.commit()
     
     def disconnect(self):
         self._connection.close()
