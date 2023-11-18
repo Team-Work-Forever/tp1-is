@@ -5,7 +5,10 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 from functions.string_length import string_length
 from functions.string_reverse import string_reverse
 from functions.convert_to_xml import to_xml
+from data.db_access import DbConnection
 
+dbAccess = DbConnection("")
+dbAccess.connect()
 
 class RequestHandler(SimpleXMLRPCRequestHandler):
     rpc_paths = ('/RPC2',)
@@ -13,7 +16,6 @@ class RequestHandler(SimpleXMLRPCRequestHandler):
 
 with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as server:
     server.register_introspection_functions()
-
 
     def signal_handler(signum, frame):
         print("received signal")
@@ -38,3 +40,5 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as ser
     # start the server
     print("Starting the RPC Server...")
     server.serve_forever()
+
+dbAccess.disconnect()
