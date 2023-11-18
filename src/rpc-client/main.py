@@ -1,10 +1,9 @@
-import xmlrpc.client
+from rpc_connection import RPConnection
 
-print("connecting to server...")
-server = xmlrpc.client.ServerProxy('http://is-rpc-server:9000')
+from functions import GetStoragedFileHandler, UploadFileHandler
 
-string = "hello world"
-
-print(f" > {server.string_reverse(string)}")
-print(f" > {server.string_length(string)}")
-print(f" > {server.to_xml(string)}")
+rpc_conn = RPConnection([
+    UploadFileHandler(),
+    GetStoragedFileHandler(),
+]
+).run_loop()
