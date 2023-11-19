@@ -10,6 +10,6 @@ class GetFileInfoHandler(Handler):
 
     def handle(self, file_name: str):
         cursor = self.db_access.get_cursor()
-        cursor.execute(f"SELECT * FROM public.imported_documents where file_name = '{file_name}'")   
+        cursor.execute(f"SELECT * FROM public.active_imported_documents where file_name = '{file_name}'")   
 
         return cursor.fetchone()

@@ -2,7 +2,7 @@ import signal, sys
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 
-from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler
+from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler, RemoveRecordHandler
 from data import DbConnection
 
 dbAccess = DbConnection()
@@ -13,7 +13,8 @@ class RequestHandler(SimpleXMLRPCRequestHandler):
 register_methods = [
     ConvertToXmlHandler(),
     GetAllPersistedFilesHandler(),
-    GetFileInfoHandler()
+    GetFileInfoHandler(),
+    RemoveRecordHandler()
 ]
 
 with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as server:

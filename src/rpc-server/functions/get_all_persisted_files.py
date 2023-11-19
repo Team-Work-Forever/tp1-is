@@ -10,6 +10,6 @@ class GetAllPersistedFilesHandler(Handler):
 
     def handle(self):
         cursor = self.db_access.get_cursor()
-        cursor.execute("SELECT file_name FROM public.imported_documents")   
+        cursor.execute("SELECT file_name FROM public.active_imported_documents")   
 
         return [result[0] for result in cursor]
