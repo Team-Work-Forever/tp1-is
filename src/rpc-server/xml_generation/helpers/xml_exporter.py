@@ -52,5 +52,7 @@ class XmlExporter():
         el = self._default_converter(region, "Region")
 
         el.set("region", region.get_region())
+        el.set("lat", str(region.get_lat()))
+        el.set("lon", str(region.get_lon()))
 
         return el

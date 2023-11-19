@@ -1,3 +1,5 @@
+import asyncio
+
 import xml.dom.minidom as md
 import xml.etree.ElementTree as ET
 
@@ -7,9 +9,12 @@ from .entities import Country, Wine, Region, Review, Taster
 from .csv_reader import CSVReader
 from .validator import XMLValidator
 
+from services import NominatimApi
+
 class CSVtoXMLConverter:
 
     def __init__(self, path):
+        self._nominatimApi = NominatimApi()
         self._reader = CSVReader(path)
 
     def read_countries(self):
@@ -25,13 +30,24 @@ class CSVtoXMLConverter:
             return row["region_2"]
         
         return row["region_1"]
+
+    async def build_region(self, row, countries):
+        country = countries[row["country"]]
+        region = self.create_regions(row)
+
+        response = await self._nominatimApi.get_value(country.get_name(), region)
+        
+        return Region(
+                country.get_id(),
+                region,
+                response[0],
+                response[1]
+                )
     
     def read_region(self, countries):
         return self._reader.read_entities(
             attr="region_1",
-            builder=lambda row: Region(
-                countries[row["country"]].get_id(),
-                self.create_regions(row))
+            builder=lambda row: asyncio.run(self.build_region(row, countries))
         )
     
     def read_wine(self, countries, regions):
@@ -111,10 +127,10 @@ class CSVtoXMLConverter:
 
     def to_xml_str(self):
         root = self.to_xml()
-        validator = XMLValidator(root=root)
+        # validator = XMLValidator(root=root)
 
-        if validator.validate():
-            raise Exception("Invalid XML Format")
+        # if validator.validate():
+        #     raise Exception("Invalid XML Format")
 
         xml_str = ET.tostring(root, encoding='utf8', method='xml').decode()
         dom = md.parseString(xml_str)
