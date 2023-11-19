@@ -1,3 +1,4 @@
+import psycopg2
 from functions import Handler
 from xml_generation import CSVtoXMLConverter
 from data import DbConnection
@@ -21,14 +22,14 @@ class ConvertToXmlHandler(Handler):
             store_file(self.UPLOADS_FOLDER + "work_file", decoded_file)
         except Exception as e:
             print(e)
-            return "Error converting to XML"
+            return self.send_error("Error converting to XML")
 
         try:
             converter = CSVtoXMLConverter(self.UPLOADS_FOLDER + "work_file")
             xml_result = converter.to_xml_str()
         except Exception as e:
             print(e)
-            return "Error converting to XML"
+            return self.send_error("Error converting to XML")
 
         cursor = self.db_access.get_cursor()
 
@@ -39,11 +40,16 @@ class ConvertToXmlHandler(Handler):
             (%(file_name)s, %(xml)s);
         """
 
-        cursor.execute(query, {
-            'file_name': file_name,
-            'xml': xml_result
-        })
+        try:
+            cursor.execute(query, {
+                'file_name': file_name,
+                'xml': xml_result
+            })
+
+        except psycopg2.errors.UniqueViolation as e:
+            print(e)
+            return self.send_error("Is not possible to store the same file")
 
         self.db_access.commit()
-
+      
         return encode_file(xml_result)

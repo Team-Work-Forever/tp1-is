@@ -1,4 +1,5 @@
 import os
+import xmlrpc.client
 
 from functions import Handler
 from utils import encode_file, decode_file, store_file
@@ -21,9 +22,14 @@ class UploadFileHandler(Handler):
         with open(path, 'rb') as file:
             binary_data = encode_file(file.read())
         
-        result = server.upload_file_to_xml(file_name, binary_data)
-        file_name = file_name.split('.csv')[0] + ".xml"
+        try:
+            result = server.upload_file_to_xml(file_name, binary_data)
 
-        store_file(file_name, decode_file(result))
-        print(f"Creating file {file_name}")
+            file_name = file_name.split('.csv')[0] + ".xml"
+
+            store_file(file_name, decode_file(result))
+            print(f"Creating file {file_name}")
+        except xmlrpc.client.Fault as fault:
+            print(fault.faultString)
+
         input("Press enter")

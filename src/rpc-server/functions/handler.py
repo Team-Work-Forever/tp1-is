@@ -1,3 +1,4 @@
+import xmlrpc
 from abc import ABC, abstractmethod
 
 class Handler(ABC):
@@ -10,3 +11,6 @@ class Handler(ABC):
 
     def handle(**kargs):
         pass
+
+    def send_error(self, message: str):
+        raise xmlrpc.client.Fault(1, message)
