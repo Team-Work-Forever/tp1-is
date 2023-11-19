@@ -23,8 +23,12 @@ class ConvertToXmlHandler(Handler):
             print(e)
             return "Error converting to XML"
 
-        converter = CSVtoXMLConverter(self.UPLOADS_FOLDER + "work_file")
-        xml_result = converter.to_xml_str()
+        try:
+            converter = CSVtoXMLConverter(self.UPLOADS_FOLDER + "work_file")
+            xml_result = converter.to_xml_str()
+        except Exception as e:
+            print(e)
+            return "Error converting to XML"
 
         cursor = self.db_access.get_cursor()
 

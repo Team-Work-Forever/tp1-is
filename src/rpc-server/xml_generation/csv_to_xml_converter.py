@@ -1,16 +1,11 @@
-import csv
 import xml.dom.minidom as md
 import xml.etree.ElementTree as ET
 
-from xml_generation.helpers.xml_exporter import XmlExporter
+from .helpers import XmlExporter
+from .entities import Country, Wine, Region, Review, Taster
 
-from xml_generation.entities.country import Country
-from xml_generation.entities.region import Region
-from xml_generation.entities.taster import Taster
-from xml_generation.entities.wine import Wine
-from xml_generation.entities.review import Review
-
-from xml_generation.csv_reader import CSVReader
+from .csv_reader import CSVReader
+from .validator import XMLValidator
 
 class CSVtoXMLConverter:
 
@@ -115,7 +110,14 @@ class CSVtoXMLConverter:
         return root_el
 
     def to_xml_str(self):
-        xml_str = ET.tostring(self.to_xml(), encoding='utf8', method='xml').decode()
+        root = self.to_xml()
+        validator = XMLValidator(root=root)
+
+        if validator.validate():
+            raise Exception("Invalid XML Format")
+
+        xml_str = ET.tostring(root, encoding='utf8', method='xml').decode()
         dom = md.parseString(xml_str)
+
         return dom.toprettyxml()
 

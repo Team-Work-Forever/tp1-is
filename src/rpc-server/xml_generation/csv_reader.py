@@ -13,24 +13,6 @@ class CSVReader:
                 yield row
         file.close()
 
-    # def has_empty_value(self, row):
-    #     for value in row[1:]:
-    #         if value == '':
-    #             return True
-            
-    #     return False
-
-    # def read(self):
-    #     entries = []
-
-    #     for row in self.loop():
-    #         if any(row[value] == '' for value in row):
-    #             continue
-            
-    #         entries.append(row)
-            
-    #     return entries
-                
     def read_entities(self, attr, builder, after_create=None):
         entities = {}
         for row in self.loop():
