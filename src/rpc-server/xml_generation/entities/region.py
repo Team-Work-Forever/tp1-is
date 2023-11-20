@@ -23,5 +23,11 @@ class Region(Entity):
     def get_lon(self):
         return self._lon
 
+    def set_lat(self, value: float):
+        self._lat = value
+
+    def set_lon(self, value: float):
+        self._lon = value
+
     def to_xml(self, xmlConverter: XmlExporter):
         return xmlConverter.convertRegion(self)

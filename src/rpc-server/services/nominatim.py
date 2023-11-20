@@ -1,21 +1,31 @@
 import httpx
+import time
 
-class NominatimApi():
+class NominatimApi:
     BASE_URL = "https://nominatim.openstreetmap.org"
+
+    def __init__(self, delay_between_requests=3):
+        self.delay_between_requests = delay_between_requests
 
     async def _make_request(self, path: str):
         async with httpx.AsyncClient() as client:
             response = await client.get(self.BASE_URL + path)
 
-        if response.status_code != 200:
-            raise Exception("Some error occorred")
-        
+        response.raise_for_status()
         return response.json()
 
     async def get_value(self, country: str, region: str) -> (float, float):
-        response = await self._make_request(f"/search?country={country}&city={region}&format=json")
+        try:
+            response = await self._make_request(f"/search?country={country}&city={region}&format=json")
 
-        if len(response) == 0:
-            return (0, 0)
+            if len(response) == 0:
+                return 0, 0
 
-        return (response[0]['lat'], response[0]['lon'])
+            time.sleep(4)
+            return float(response[0]['lat']), float(response[0]['lon'])
+        except httpx.HTTPError as http_err:
+            print(f"HTTP error occurred: {http_err}")
+            raise
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+            raise
