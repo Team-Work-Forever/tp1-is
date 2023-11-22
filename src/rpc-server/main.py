@@ -5,7 +5,7 @@ from xmlrpc.server import SimpleXMLRPCRequestHandler
 from functions import GetTheBestRatedWinesHandler
 
 from data import DbConnection
-from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler, RemoveRecordHandler, GetTheBestRatedWinesHandler, GetCountryRegions, GetCountries
+from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler, RemoveRecordHandler, GetTheBestRatedWinesHandler, GetCountryRegions, GetCountries, GetTheMostExpensiveWines
 
 dbAccess = DbConnection()
 
@@ -19,7 +19,8 @@ register_methods = [
     RemoveRecordHandler(),
     GetTheBestRatedWinesHandler(),
     GetCountryRegions(),
-    GetCountries()
+    GetCountries(),
+    GetTheMostExpensiveWines()
 ]
 
 with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as server:

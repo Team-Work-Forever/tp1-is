@@ -6,6 +6,7 @@ from .remove_record_handler import RemoveRecordHandler
 from .queries.get_the_best_rated_wines import GetTheBestRatedWinesHandler
 from .queries.get_country_regions import GetCountryRegions
 from .queries.get_countries import GetCountries
+from .queries.get_the_most_expensive_wines import GetTheMostExpensiveWines
 
 __all__ = [
     "Handler", 
@@ -15,5 +16,6 @@ __all__ = [
     "RemoveRecordHandler", 
     "GetTheBestRatedWinesHandler",
     "GetCountryRegions",
-    "GetCountries"
+    "GetCountries",
+    "GetTheMostExpensiveWines"
 ]

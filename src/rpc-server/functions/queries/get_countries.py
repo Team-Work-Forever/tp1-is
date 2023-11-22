@@ -15,7 +15,7 @@ class GetCountries(Handler):
         try:
             query = f"""
                 select
-                    unnest(xpath('/WineReviews/Countries/Country/@name', xml))::text as country
+                    unnest(xpath('/WineReviews/Countries/Country[count(*) > 0]/@name', xml))::text as country
                 from imported_documents
                 where file_name = 'dataset.csv';
             """

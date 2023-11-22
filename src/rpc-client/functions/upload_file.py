@@ -10,6 +10,7 @@ class UploadFileHandler(Handler):
         super().__init__("Convert CSV to XML")
 
     def handle_function(self, server: ServerProxy):
+        os.system("clear")
         path = input("Provide the path for the csv file: ")
 
         if not path:

@@ -16,9 +16,9 @@ class GetCountryRegions(Handler):
 
     def handle_function(self, server: ServerProxy):
         os.system("clear")
-        countries = server.get_countries()
+        countries = server.get_countries()[:38]
 
-        index = MenuFactory().create_menu(title="Choose an query to run", options=countries[:38])
+        index = MenuFactory().create_menu(title="Choose an query to run", options=countries)
 
         if index == -1:
             return
