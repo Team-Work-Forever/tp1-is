@@ -2,8 +2,10 @@ import signal, sys
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 
-from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler, RemoveRecordHandler
+from functions import GetTheBestRatedWinesHandler
+
 from data import DbConnection
+from functions import ConvertToXmlHandler, GetAllPersistedFilesHandler, GetFileInfoHandler, RemoveRecordHandler, GetTheBestRatedWinesHandler, GetCountryRegions, GetCountries
 
 dbAccess = DbConnection()
 
@@ -14,7 +16,10 @@ register_methods = [
     ConvertToXmlHandler(),
     GetAllPersistedFilesHandler(),
     GetFileInfoHandler(),
-    RemoveRecordHandler()
+    RemoveRecordHandler(),
+    GetTheBestRatedWinesHandler(),
+    GetCountryRegions(),
+    GetCountries()
 ]
 
 with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as server:

@@ -25,7 +25,7 @@ class UnixMenu(Menu):
         while key != ord(' '):
             self.console.clear()
             self.console.log(self.title)
-            self.console.log_position("Press 'q' to quit. Press 'SPACE' to do something.", (4 + self.DISTANCE_OFFSET, 0))
+            self.console.log_position("Press 'q' to quit. Press 'SPACE' to do something.", (4 + self.DISTANCE_OFFSET + len(self._options), 0))
 
             self.draw_another()
 

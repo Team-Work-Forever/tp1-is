@@ -1,3 +1,5 @@
+import os
+
 from abc import ABC
 from xmlrpc.client import ServerProxy
 
@@ -7,4 +9,4 @@ class Handler(ABC):
         self.title = title
 
     def handle_function(self, server: ServerProxy):
-        pass
+        os.system("clear")
