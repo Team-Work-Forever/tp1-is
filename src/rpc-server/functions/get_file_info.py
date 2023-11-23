@@ -12,4 +12,12 @@ class GetFileInfoHandler(Handler):
         cursor = self.db_access.get_cursor()
         cursor.execute(f"SELECT * FROM public.active_imported_documents where file_name = '{file_name}'")   
 
-        return cursor.fetchone()
+        get_file = cursor.fetchone()
+
+        return (
+            get_file[0],
+            get_file[1],
+            get_file[2],
+            get_file[3],
+            get_file[4]
+        )
