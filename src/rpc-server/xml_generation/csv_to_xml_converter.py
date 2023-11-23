@@ -37,7 +37,7 @@ class CSVtoXMLConverter:
         country = countries[row["country"]]
         region = self.create_regions(row)
 
-        return Region(country.get_id(), region, 0, 0)
+        return Region(country.get_id(), region, row['province'])
 
     async def read_region(self, countries):
         if self._regions is None:

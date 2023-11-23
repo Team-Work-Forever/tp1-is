@@ -3,19 +3,23 @@ from .entity import Entity
 
 class Region(Entity):
 
-    def __init__(self, country_id, region, lat: float, lon: float):
+    def __init__(self, country_id, region, province):
         super().__init__("region")
 
         self._country_id = country_id
         self._region = region
-        self._lat = lat
-        self._lon = lon
+        self._province = province
+        self._lat = 0
+        self._lon = 0
 
     def get_country_id(self):
         return self._country_id
     
     def get_region(self):
         return self._region
+    
+    def get_province(self):
+        return self._province
 
     def get_lat(self):
         return self._lat
