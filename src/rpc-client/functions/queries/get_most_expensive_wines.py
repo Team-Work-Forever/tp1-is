@@ -25,7 +25,8 @@ class GetMostExpensiveWines(Handler):
         return False
 
     def handle_function(self, server: ServerProxy):
-        os.system("clear")
+        super().handle_function(server)
+        
         limit = 'a'
 
         files = server.get_all_persisted_files()

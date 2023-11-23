@@ -1,5 +1,3 @@
-import os
-
 from functions import Handler
 
 from xmlrpc.client import ServerProxy
@@ -15,7 +13,7 @@ class GetBestRatedWines(Handler):
         print(f"Updated On - {file[4]}")
 
     def handle_function(self, server: ServerProxy):
-        os.system("clear")
+        super().handle_function(server)
         wines = server.get_best_rated_wines()
 
         for wine in wines:

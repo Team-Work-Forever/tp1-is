@@ -1,4 +1,3 @@
-import os
 from functions import Handler
 from utils import MenuFactory
 
@@ -15,7 +14,7 @@ class GetCountryRegions(Handler):
         print(f"Updated On - {file[4]}")
 
     def handle_function(self, server: ServerProxy):
-        os.system("clear")
+        super().handle_function(server)
         countries = server.get_countries()[:38]
 
         index = MenuFactory().create_menu(title="Choose an query to run", options=countries)
