@@ -20,12 +20,17 @@ class BetterCSVReader:
             csv_reader = DictReader(file, delimiter=self._delimiter)
 
             for i, row in enumerate(csv_reader, start=1):
-                e = row[attr]
-                if e not in entities:
-                    entities[e] = builder(row)
+                e = '-'.join([row[at] for at in attr if at in row and row[at] != ''])
 
-                    if iscoroutine(entities[e]):
-                        entities[e] = await entities[e]
+                if e not in entities:
+                    try:
+                        vamos = builder(row)
+                        entities[e] = vamos
+                    except Exception as i:
+                        print(f"Why i'm still here {i}")
+
+                    # if iscoroutine(entities[e]):
+                    #     entities[e] = await entities[e]
 
                     if after_create:
                         after_create(entities[e], row)

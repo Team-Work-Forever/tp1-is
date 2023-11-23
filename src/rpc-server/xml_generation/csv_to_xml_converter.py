@@ -22,10 +22,13 @@ class CSVtoXMLConverter:
         self._wines = None
         self._reviews = None
 
+    def get_composite_key(self, *composite_key):
+        return '-'.join([key for key in composite_key if key != ''])
+
     async def read_countries(self):
         if self._countries is None:
             self._countries = await self._reader.read_entities(
-                attr="country",
+                attr=["country"],
                 builder=lambda row: Country(row["country"])
             )
 
@@ -35,26 +38,26 @@ class CSVtoXMLConverter:
 
     def build_region(self, row, countries):
         country = countries[row["country"]]
+        
         region = self.create_regions(row)
-
         return Region(country.get_id(), region, row['province'])
 
     async def read_region(self, countries):
         if self._regions is None:
             self._regions = await self._reader.read_entities(
-                attr="region_1",
+                attr=["region_1", "region_2"],
                 builder=lambda row: self.build_region(row, countries)
             )
 
     async def read_wine(self, countries, regions):
         if self._wines is None:
             self._wines = await self._reader.read_entities(
-                attr="designation",
+                attr=["price", "variety", "winery"],
                 builder=lambda row: Wine(
                     row["price"], 
                     row["designation"],
                     countries[row["country"]].get_id(),
-                    regions[row["region_1"]].get_id(),
+                    regions[self.get_composite_key(row["region_1"], row["region_2"])].get_id(),
                     row["variety"],
                     row["winery"])
             )
@@ -62,7 +65,7 @@ class CSVtoXMLConverter:
     async def read_taster(self):
         if self._tasters is None:
             self._tasters = await self._reader.read_entities(
-                attr="taster_name",
+                attr=["taster_name"],
                 builder=lambda row: Taster(
                     row["taster_name"],
                     row["taster_twitter_handle"])
@@ -71,10 +74,10 @@ class CSVtoXMLConverter:
     async def read_review(self, tasters, wines):
         if self._reviews is None:
             self._reviews = await self._reader.read_entities(
-                attr="points",
+                attr=["points", "description"],
                 builder=lambda row: Review(
                     tasters[row["taster_name"]].get_id(),
-                    wines[row["designation"]].get_id(),
+                    wines[self.get_composite_key(row["price"], row["variety"], row["winery"])].get_id(),
                     row["points"],
                     row["description"])
             )
