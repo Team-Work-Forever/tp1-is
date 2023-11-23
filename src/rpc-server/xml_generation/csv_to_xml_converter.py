@@ -144,6 +144,11 @@ class CSVtoXMLConverter:
 
     async def to_xml_str(self):
         root = await self.to_xml()
+        validator = XMLValidator(root)
+
+        if not validator.is_valid():
+            raise Exception("Document XML is not valid")
+
         xml_str = ET.tostring(root, encoding='utf8', method='xml').decode()
         dom = md.parseString(xml_str)
         return dom.toprettyxml()

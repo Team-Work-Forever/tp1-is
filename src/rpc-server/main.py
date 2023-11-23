@@ -29,8 +29,7 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as ser
     def signal_handler(signum, frame):
         print("received signal")
         server.server_close()
-
-        # perform clean up, etc. here...
+        dbAccess.disconnect()
 
         print("exiting, gracefully")
         sys.exit(0)
@@ -48,5 +47,3 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as ser
     # start the server
     print("Starting the RPC Server...")
     server.serve_forever()
-
-dbAccess.disconnect()

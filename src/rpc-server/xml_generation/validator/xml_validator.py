@@ -7,8 +7,8 @@ class XMLValidator():
     def __init__(self, root):
         self._root = root
     
-    def validate(self) -> bool:
+    def is_valid(self) -> bool:
         element = etree.fromstring(ET.tostring(self._root))
         schema = etree.XMLSchema(etree.parse(self.XSD_SCHEMA))
 
-        return not schema.validate(element)
+        return schema.validate(element)
