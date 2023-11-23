@@ -11,6 +11,7 @@ from .queries.get_the_best_rated_wines import GetTheBestRatedWinesHandler
 from .queries.get_country_regions import GetCountryRegions
 from .queries.get_countries import GetCountries
 from .queries.get_the_most_expensive_wines import GetTheMostExpensiveWines
+from .validate_xml_file import ValidateXMLFileHandler
 
 def get_module_classes():
     dirname_path = os.path.basename(os.path.dirname(__file__))
@@ -42,5 +43,6 @@ __all__ = [
     "GetTheBestRatedWinesHandler",
     "GetCountryRegions",
     "GetCountries",
-    "GetTheMostExpensiveWines"
+    "GetTheMostExpensiveWines",
+    "ValidateXMLFileHandler"
 ]

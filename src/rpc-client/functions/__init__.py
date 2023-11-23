@@ -7,6 +7,8 @@ from .get_stored_file import GetStoragedFileHandler
 from .upload_file import UploadFileHandler
 from .remove_record import RemoveRecordHandler
 
+from .validate_xml_file import ValidateXMLFileHandler
+
 from .queries.run_query import RunQuery
 
 def _get_module_classes():
@@ -35,5 +37,6 @@ __all__ = [
     "UploadFileHandler", 
     "Handler", 
     "RemoveRecordHandler", 
+    "ValidateXMLFileHandler",
     "RunQuery"
 ]
