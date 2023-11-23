@@ -1,5 +1,4 @@
-from importlib import import_module
-import os
+import signal, sys
 from rpc_connection import RPConnection
 
 from functions import GetStoragedFileHandler, UploadFileHandler, RemoveRecordHandler, RunQuery
@@ -25,10 +24,19 @@ from functions import GetStoragedFileHandler, UploadFileHandler, RemoveRecordHan
 
 # load_from_assembly("src/rpc-client/functions")
 
-rpc_conn = RPConnection([
+def signal_handler(signum, frame):
+        print("Thanks, for using our cli")
+        sys.exit(0)
+
+rpc = RPConnection([
     UploadFileHandler(),
     GetStoragedFileHandler(),
     RemoveRecordHandler(),
     RunQuery()
-]
-).run_loop()
+])
+
+signal.signal(signal.SIGTERM, signal_handler)
+signal.signal(signal.SIGHUP, signal_handler)
+signal.signal(signal.SIGINT, signal_handler)
+
+rpc.run_loop()

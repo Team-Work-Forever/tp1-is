@@ -32,7 +32,7 @@ class RPConnection():
 
         except Exception as e:
             self.console.clear()
-            self.console.log(e)
+            print(e)
         finally:
             self.console.reset()
             self.console.dispose()
