@@ -17,6 +17,20 @@ class ConvertToXmlHandler(Handler):
     def get_name(self):
         return "upload_file_to_xml"
 
+    def updateFileIfExists(self, cursor, file_name, xml):
+        query = """
+            UPDATE imported_documents
+                set xml = %(xml)s,
+                    deleted_on = null
+            where file_name = %(file_name)s
+            ;
+        """
+
+        cursor.execute(query, {
+            'file_name': file_name,
+            'xml': xml
+        })
+
     def handle(self, file_name: str, csv_file: str):
         decoded_file = decode_file(csv_file)
 
@@ -49,8 +63,8 @@ class ConvertToXmlHandler(Handler):
             })
 
         except psycopg2.errors.UniqueViolation as e:
-            print(e)
-            return self.send_error("Is not possible to store the same file")
+            self.db_access.rollback()
+            self.updateFileIfExists(cursor, file_name, xml_result)
 
         self.db_access.commit()
       
