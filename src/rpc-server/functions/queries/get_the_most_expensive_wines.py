@@ -24,7 +24,7 @@ class GetTheMostExpensiveWines(Handler):
                         (unnest(xpath('/WineReviews/Wines/Wine[number(@price) > 0]/@designation', xml))::text) as designation,
                         (unnest(xpath('/WineReviews/Wines/Wine[number(@price) > 0]/@variaty', xml))::text) as variaty,
                     (unnest(xpath('/WineReviews/Wines/Wine[number(@price) > 0]/@price', xml))::text::float) as price
-                FROM imported_documents
+                FROM public.active_imported_documents
                 {f"WHERE file_name = '{file_name}'" if len(file_name) > 0 else ""}
             ) AS io
             ORDER by io.price desc

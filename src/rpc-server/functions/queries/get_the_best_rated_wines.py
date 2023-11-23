@@ -26,7 +26,7 @@ class GetTheBestRatedWinesHandler(Handler):
             SELECT
                 unnest(xpath('/WineReviews/Reviews/Review/@wine_id', xml)) as wine_id,
                 (unnest(xpath('/WineReviews/Reviews/Review/@points', xml))::text::integer) as points
-            FROM imported_documents
+            FROM public.active_imported_documents
             ORDER BY points desc
             limit 5
             ;
@@ -39,7 +39,7 @@ class GetTheBestRatedWinesHandler(Handler):
             get_wines = f"""
             select
                     unnest(xpath('/WineReviews/Wines/Wine[{self.parse_ids_onto(wines_ids)}]', xml))::text as wine_id
-                from imported_documents;
+                from public.active_imported_documents;
                 ;      
             """
 

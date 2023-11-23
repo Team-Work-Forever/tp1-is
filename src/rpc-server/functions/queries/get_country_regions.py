@@ -16,7 +16,7 @@ class GetCountryRegions(Handler):
             query = f"""
                 select 
                     unnest(xpath('/WineReviews/Countries/Country[@name="{country}"]/Region/@region', xml))::text as Regions
-                from imported_documents;
+                from public.active_imported_documents;
             """
 
             cursor.execute(query)
