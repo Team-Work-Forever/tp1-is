@@ -7,10 +7,13 @@ from .convert_to_xml import ConvertToXmlHandler
 from .get_all_persisted_files import GetAllPersistedFilesHandler
 from .get_file_info import GetFileInfoHandler
 from .remove_record_handler import RemoveRecordHandler
+
 from .queries.get_the_best_rated_wines import GetTheBestRatedWinesHandler
 from .queries.get_country_regions import GetCountryRegions
 from .queries.get_countries import GetCountries
 from .queries.get_the_most_expensive_wines import GetTheMostExpensiveWines
+from .queries.get_number_of_wines import GetNumberOfWinesByCountry
+
 from .validate_xml_file import ValidateXMLFileHandler
 
 def get_module_classes():
@@ -44,5 +47,6 @@ __all__ = [
     "GetCountryRegions",
     "GetCountries",
     "GetTheMostExpensiveWines",
-    "ValidateXMLFileHandler"
+    "ValidateXMLFileHandler",
+    "GetNumberOfWinesByCountry"
 ]
