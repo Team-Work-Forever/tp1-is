@@ -1,9 +1,11 @@
 import signal, sys
+
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 
 from data import DbConnection
 from functions import load_handlers_by_assembly
+
 
 dbAccess = DbConnection()
 

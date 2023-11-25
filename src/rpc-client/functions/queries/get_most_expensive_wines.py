@@ -25,9 +25,8 @@ class GetMostExpensiveWines(Handler):
         return False
 
     def handle_function(self, server: ServerProxy):
+        limit = 'limit'
         super().handle_function(server)
-        
-        limit = 'a'
 
         files = server.get_all_persisted_files()
         files.append("all")
@@ -41,6 +40,10 @@ class GetMostExpensiveWines(Handler):
         while self.is_limit(limit):
             os.system("clear")
             limit = input("Provide the number of wines that you want to fetch (default = 10): ")
+
+            if limit == '':
+                limit = '10'
+                break
         
         print("Quering...")
 

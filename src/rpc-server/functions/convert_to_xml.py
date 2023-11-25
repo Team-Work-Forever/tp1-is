@@ -1,12 +1,13 @@
+import os
 import psycopg2
 
 from functions import Handler
-from xml_generation import CSVtoXMLConverter, CSVtoXMLConverterMine
+from xml_generation import CSVtoXMLConverter
 from data import DbConnection
 from utils import encode_file, decode_file, store_file
 
 class ConvertToXmlHandler(Handler):
-    UPLOADS_FOLDER = "src/rpc-server/uploads/"
+    UPLOADS_FOLDER = "/data/"
     DATASET_PATH = "dataset.csv"
 
     def __init__(self) -> None:
@@ -33,14 +34,13 @@ class ConvertToXmlHandler(Handler):
         decoded_file = decode_file(csv_file)
 
         try:
-            store_file(self.UPLOADS_FOLDER + "work_file", decoded_file)
+            store_file(os.path.join(self.UPLOADS_FOLDER, "work_file"), decoded_file)
         except Exception as e:
             print(e)
             return self.send_error("Error converting to XML")
 
         try:
-            converter = CSVtoXMLConverterMine(self.UPLOADS_FOLDER + "work_file", file_name)
-            # xml_result = asyncio.run(converter.to_xml_str())
+            converter = CSVtoXMLConverter(os.path.join(self.UPLOADS_FOLDER, "work_file"), file_name)
             xml_result = converter.to_xml_str()
         except Exception as e:
             print(e)

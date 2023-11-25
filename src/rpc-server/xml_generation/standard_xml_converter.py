@@ -14,7 +14,7 @@ from .entities import Review
 from .validator import XMLValidator
 from .csv_reader import CSVReader
 
-class CSVtoXMLConverterMine:
+class CSVtoXMLConverter:
 
     def __init__(self, path, file_name = ''):
         self._reader = CSVReader(path)

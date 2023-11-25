@@ -12,10 +12,10 @@ class UploadFileHandler(Handler):
     def handle_function(self, server: ServerProxy):
         super().handle_function(server)
         
-        path = input("Provide the path for the csv file: ")
+        path = input("Provide the path for the csv file (/data/dataset.csv): ")
 
         if not path:
-            path = 'src/rpc-client/vendor/dataset.csv'
+            path = '/data/dataset.csv'
 
         file_name = os.path.basename(path)
 

@@ -1,12 +1,10 @@
-import asyncio
-
 from functions import Handler
 from xml_generation import CSVtoXMLConverter
 
 from utils import store_file
 
 class ValidateXMLFileHandler(Handler):
-    UPLOADS_FOLDER = "src/rpc-server/uploads/"
+    UPLOADS_FOLDER = "/data/"
 
     def get_name(self):
         return "validate_xml_file"

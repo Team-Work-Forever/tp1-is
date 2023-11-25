@@ -19,7 +19,7 @@ class RPConnection():
 
     def run_loop(self):
         index = 0
-        self.server = ServerProxy('http://0.0.0.0:9000')
+        self.server = ServerProxy('http://rpc-server:9000')
 
         try:
             while True:

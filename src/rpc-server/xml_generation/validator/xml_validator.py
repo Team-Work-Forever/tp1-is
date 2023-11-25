@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 from lxml import etree
 
 class XMLValidator():
-    XSD_SCHEMA = "src/rpc-server/vendor/schema.xsd"
+    XSD_SCHEMA = "./vendor/schema.xsd"
 
     def __init__(self, root):
         self._root = root

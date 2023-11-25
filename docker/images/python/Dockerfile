@@ -1,5 +1,14 @@
 FROM python:3.9.18-alpine
 
+RUN apk update && apk upgrade
+
+RUN apk add --no-cache \
+    libressl-dev \
+    libffi-dev \
+    ncurses
+
+ENV TERM xterm-256color
+
 WORKDIR /app
 
 # install nodemon

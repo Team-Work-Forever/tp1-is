@@ -1,3 +1,5 @@
 from .singleton import SingletonMeta
 
-__all__ = ["SingletonMeta"]
+__all__ = [
+    "SingletonMeta", 
+]

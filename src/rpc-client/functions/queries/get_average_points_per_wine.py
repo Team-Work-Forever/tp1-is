@@ -30,6 +30,10 @@ class GetAveragePointsPerWine(Handler):
             os.system("clear")
             limit = input("Provide the number of wines that you want to fetch (default = 10): ")
 
+            if limit == '':
+                limit = '10'
+                break
+
         while order != 'desc' and order != 'asc':
             os.system("clear")
             order = input("Provide the order (desc(defualt) | asc): ")
