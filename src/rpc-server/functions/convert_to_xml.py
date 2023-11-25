@@ -1,17 +1,19 @@
 import os
 import psycopg2
 
+from helpers import EnviromentLoader
+
 from functions import Handler
 from xml_generation import CSVtoXMLConverter
 from data import DbConnection
 from utils import encode_file, decode_file, store_file
 
 class ConvertToXmlHandler(Handler):
-    UPLOADS_FOLDER = "/data/"
     DATASET_PATH = "dataset.csv"
 
     def __init__(self) -> None:
         self.db_access = DbConnection()
+        self.UPLOADS_FOLDER = EnviromentLoader.get_var("MAIN_DIR") + "/"
 
     def get_name(self):
         return "upload_file_to_xml"

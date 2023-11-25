@@ -1,4 +1,4 @@
-from xml_generation.helpers.xml_exporter import XmlExporter
+from xml_generation.handlers import XmlExporter
 from abc import abstractmethod
 
 class Entity():

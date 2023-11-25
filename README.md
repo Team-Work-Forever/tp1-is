@@ -13,7 +13,7 @@ Build the containers
 
 Enter on is-rpc-client container
 ```sh
-  docker exec -it is-rpc-client python /app/main.py
+  docker exec -it is-rpc-client python /app/main.py prod
 ```
 ___
 #### _Informatics Engineering @ipvc/estg, 2023-2024_ ####

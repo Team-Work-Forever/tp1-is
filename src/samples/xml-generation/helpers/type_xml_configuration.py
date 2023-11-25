@@ -4,7 +4,7 @@ from .xml_exporter import XmlExporter
 
 class TypeXmlConfiguration():
 
-    _entities_list: [] = [ ] # { str, entidade }
+    _entities_list: [] = [ ]
 
     def __init__(self, values: { }) -> None:
         self._raw_values = values

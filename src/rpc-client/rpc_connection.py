@@ -1,5 +1,7 @@
 from xmlrpc.client import ServerProxy
 
+from helpers import EnviromentLoader
+
 from utils import Console
 from utils import MenuFactory
 from functions import Handler
@@ -19,7 +21,7 @@ class RPConnection():
 
     def run_loop(self):
         index = 0
-        self.server = ServerProxy('http://rpc-server:9000')
+        self.server = ServerProxy(f'http://{EnviromentLoader.get_var("RPC_SERVER_URL")}:9000')
 
         try:
             while True:

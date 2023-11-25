@@ -1,12 +1,19 @@
 import signal, sys
 
+from helpers import EnviromentLoader
+
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 
 from data import DbConnection
 from functions import load_handlers_by_assembly
 
+if len(sys.argv) > 1:
+    enviroment = sys.argv[1]
+else:
+    enviroment = 'dev'
 
+EnviromentLoader.load(enviroment)
 dbAccess = DbConnection()
 
 class RequestHandler(SimpleXMLRPCRequestHandler):

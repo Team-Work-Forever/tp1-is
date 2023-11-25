@@ -1,6 +1,8 @@
 import os
 import xmlrpc.client
 
+from helpers import EnviromentLoader
+
 from functions import Handler
 from utils import encode_file, decode_file, store_file
 from xmlrpc.client import ServerProxy
@@ -8,14 +10,15 @@ from xmlrpc.client import ServerProxy
 class UploadFileHandler(Handler):
     def __init__(self) -> None:
         super().__init__("Convert CSV to XML")
+        self.MAIN_DIR = EnviromentLoader.get_var("MAIN_DIR")
 
     def handle_function(self, server: ServerProxy):
         super().handle_function(server)
         
-        path = input("Provide the path for the csv file (/data/dataset.csv): ")
+        path = input(F"Provide the path for the csv file ({self.MAIN_DIR}/dataset.csv): ")
 
         if not path:
-            path = '/data/dataset.csv'
+            path = f'{self.MAIN_DIR}/dataset.csv'
 
         file_name = os.path.basename(path)
 

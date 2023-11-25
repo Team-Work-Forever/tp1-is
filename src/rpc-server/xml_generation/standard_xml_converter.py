@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 from services.worker import NominatimWorker
 
-from .helpers import XmlExporter
+from .handlers import XmlExporter
 
 from .entities import Country
 from .entities import Region

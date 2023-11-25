@@ -1,11 +1,12 @@
 import xml.etree.ElementTree as ET
 from lxml import etree
 
-class XMLValidator():
-    XSD_SCHEMA = "./vendor/schema.xsd"
+from helpers import EnviromentLoader
 
+class XMLValidator():
     def __init__(self, root):
         self._root = root
+        self.XSD_SCHEMA = EnviromentLoader.get_var("MAIN_DIR") + "/schema.xsd"
     
     def is_valid(self) -> bool:
         element = etree.fromstring(ET.tostring(self._root))
