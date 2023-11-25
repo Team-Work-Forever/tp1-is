@@ -13,6 +13,7 @@ from .queries.get_country_regions import GetCountryRegions
 from .queries.get_countries import GetCountries
 from .queries.get_the_most_expensive_wines import GetTheMostExpensiveWines
 from .queries.get_number_of_wines import GetNumberOfWinesByCountry
+from .queries.get_number_of_reviews_made_by_an_taster import GetNumberOfReviewsMadeByAnTaster
 
 from .validate_xml_file import ValidateXMLFileHandler
 
@@ -48,5 +49,6 @@ __all__ = [
     "GetCountries",
     "GetTheMostExpensiveWines",
     "ValidateXMLFileHandler",
-    "GetNumberOfWinesByCountry"
+    "GetNumberOfWinesByCountry",
+    "GetNumberOfReviewsMadeByAnTaster"
 ]

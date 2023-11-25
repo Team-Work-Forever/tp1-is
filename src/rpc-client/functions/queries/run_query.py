@@ -7,6 +7,7 @@ from .get_best_rated_wines import GetBestRatedWines
 from .get_country_regions import GetCountryRegions
 from .get_most_expensive_wines import GetMostExpensiveWines
 from .get_number_of_wines_by_country import GetNumberOfWinesByCountry
+from .get_number_of_reviews_made_by_an_taster import GetNumberOfReviewsMadeByAnTaster
 
 from xmlrpc.client import ServerProxy
 
@@ -15,7 +16,8 @@ class RunQuery(Handler):
         GetBestRatedWines(),
         GetCountryRegions(),
         GetMostExpensiveWines(),
-        GetNumberOfWinesByCountry()
+        GetNumberOfWinesByCountry(),
+        GetNumberOfReviewsMadeByAnTaster()
     ]
 
     def __init__(self) -> None:
