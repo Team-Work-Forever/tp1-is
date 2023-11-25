@@ -2,7 +2,7 @@ import psycopg2
 import asyncio
 
 from functions import Handler
-from xml_generation import CSVtoXMLConverter
+from xml_generation import CSVtoXMLConverter, CSVtoXMLConverterMine
 from data import DbConnection
 from utils import encode_file, decode_file, store_file
 
@@ -40,8 +40,9 @@ class ConvertToXmlHandler(Handler):
             return self.send_error("Error converting to XML")
 
         try:
-            converter = CSVtoXMLConverter(self.UPLOADS_FOLDER + "work_file")
-            xml_result = asyncio.run(converter.to_xml_str())
+            converter = CSVtoXMLConverterMine(self.UPLOADS_FOLDER + "work_file")
+            # xml_result = asyncio.run(converter.to_xml_str())
+            xml_result = converter.to_xml_str()
         except Exception as e:
             print(e)
             return self.send_error("Error converting to XML")

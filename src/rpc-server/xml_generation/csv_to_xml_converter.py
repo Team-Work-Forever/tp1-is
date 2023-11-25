@@ -9,12 +9,12 @@ from .entities import Country, Wine, Region, Review, Taster
 from .improve_csv_reader import BetterCSVReader
 from .validator import XMLValidator
 
-from services import NominatimApi
+from services import NominatimWorker
 
 class CSVtoXMLConverter:
 
     def __init__(self, path):
-        self._nominatimApi = NominatimApi()
+        self._worker = NominatimWorker()
         self._reader = BetterCSVReader(path)
         self._countries = None
         self._regions = None
@@ -111,6 +111,8 @@ class CSVtoXMLConverter:
     async def to_xml(self):
         xml_converter = XmlExporter()
         await self.read_all_entities()
+
+        self._worker.run()
 
         root_el = ET.Element("WineReviews")
 

@@ -21,7 +21,7 @@ class NominatimApi:
             if len(response) == 0:
                 return 0, 0
 
-            time.sleep(4)
+            time.sleep(1)
             return float(response[0]['lat']), float(response[0]['lon'])
         except httpx.HTTPError as http_err:
             print(f"HTTP error occurred: {http_err}")
