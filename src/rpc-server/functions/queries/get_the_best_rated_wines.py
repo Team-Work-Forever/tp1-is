@@ -1,4 +1,3 @@
-import psycopg2
 from functions import Handler
 from data import DbConnection
 
@@ -10,46 +9,39 @@ class GetTheBestRatedWinesHandler(Handler):
     def get_name(self):
         return "get_best_rated_wines"
 
-    def parse_ids_onto(self, ids):
-        query = ''
-        
-        for wine_id in ids:
-            query += '@id="' + wine_id[0] + '" or '
-
-        return query[:-4]
-
     def handle(self):
         result = ''
         cursor = self.dbAccess.get_cursor()
 
-        get_reviews = """
-            SELECT
-                unnest(xpath('/WineReviews/Reviews/Review/@wine_id', xml)) as wine_id,
-                (unnest(xpath('/WineReviews/Reviews/Review/@points', xml))::text::integer) as points
-            FROM public.active_imported_documents
-            ORDER BY points desc
-            limit 5
-            ;
-        """
-
         try:
-            cursor.execute(get_reviews)
-            wines_ids = cursor.fetchall()
-
             get_wines = f"""
-            select
-                    unnest(xpath('/WineReviews/Wines/Wine[{self.parse_ids_onto(wines_ids)}]', xml))::text as wine_id,
-                    unnest(xpath('/WineReviews/Wines/Wine[{self.parse_ids_onto(wines_ids)}]', xml))::text as wine_id,
-                    unnest(xpath('/WineReviews/Wines/Wine[{self.parse_ids_onto(wines_ids)}]', xml))::text as wine_id,
-                    unnest(xpath('/WineReviews/Wines/Wine[{self.parse_ids_onto(wines_ids)}]', xml))::text as wine_id
-                from public.active_imported_documents;
-                ;      
+                with wine_reviews as (
+                    select
+                    unnest(xpath('/WineReviews/Reviews/Review/@wine_id', xml))::text as wine_id,
+                    (unnest(xpath('/WineReviews/Reviews/Review/@points', xml))::text::integer) as points
+                from active_imported_documents
+                ),
+                wines as (
+                    select
+                    unnest(xpath('/WineReviews/Wines/Wine/@id', xml))::text as id,
+                    (unnest(xpath('/WineReviews/Wines/Wine[@price > 0]/@price', xml))) as price,
+                    unnest(xpath('/WineReviews/Wines/Wine/@variaty', xml)) as variaty,
+                    unnest(xpath('/WineReviews/Wines/Wine/@winery', xml)) as winery,
+                unnest(xpath('/WineReviews/Wines/Wine/@designation', xml)) as designation
+                from active_imported_documents
+                )
+                select
+                    w.*
+                from wines w, wine_reviews wr
+                where w.id = wr.wine_id
+                order by wr.points desc
+                limit 5;
             """
 
             cursor.execute(get_wines)
             result = cursor.fetchall()
 
-        except psycopg2.errors.UniqueViolation as e:
+        except Exception as e:
             print(e)
             return self.send_error("Some error has ocorred get the required information")
 

@@ -7,9 +7,8 @@ from data import DbConnection
 from utils import encode_file, decode_file, store_file
 
 class ConvertToXmlHandler(Handler):
-    VENDOR_FOLDER = "src/rpc-server/vendor/"
-    DATASET_PATH = "dataset.csv"
     UPLOADS_FOLDER = "src/rpc-server/uploads/"
+    DATASET_PATH = "dataset.csv"
 
     def __init__(self) -> None:
         self.db_access = DbConnection()

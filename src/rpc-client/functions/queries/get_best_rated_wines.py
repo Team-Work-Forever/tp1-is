@@ -8,15 +8,17 @@ class GetBestRatedWines(Handler):
 
     def print_wines(self, file):
         print(f"Id - {file[0]}")
-        print(f"Name - {file[1]}")
-        print(f"Create On - {file[3]}")
-        print(f"Updated On - {file[4]}")
+        print(f"Price - {file[1]}")
+        print(f"Variaty - {file[2]}")
+        print(f"Winery - {file[3]}")
+        print(f"Designation - {file[4]}")
 
     def handle_function(self, server: ServerProxy):
         super().handle_function(server)
         wines = server.get_best_rated_wines()
 
         for wine in wines:
-            print(wine)
+            self.print_wines(wine)
+            print()
 
         input("Press enter")
