@@ -16,8 +16,9 @@ from .csv_reader import CSVReader
 
 class CSVtoXMLConverterMine:
 
-    def __init__(self, path):
+    def __init__(self, path, file_name = ''):
         self._reader = CSVReader(path)
+        self.file_name = file_name
         self._countries = None
         self._regions = None
         self._tasters = None
@@ -124,7 +125,7 @@ class CSVtoXMLConverterMine:
         root_el.append(tasters_el)
         root_el.append(reviews_el)
 
-        worker = NominatimWorker(self._countries, self._regions, root_el)
+        worker = NominatimWorker(self._countries, self._regions, root_el, self)
         worker.start()
 
         return root_el
