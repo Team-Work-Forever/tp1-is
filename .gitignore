@@ -4,6 +4,7 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # env file
+.vscode
 work_file
 vendor
 uploads

@@ -6,7 +6,7 @@ from helpers import EnviromentLoader
 from functions import Handler
 from xml_generation import CSVtoXMLConverter
 from data import DbConnection
-from utils import encode_file, decode_file, store_file
+from utils import encode_file, decode_file, create_temp_file, delete_temp_file
 
 class ConvertToXmlHandler(Handler):
     DATASET_PATH = "dataset.csv"
@@ -14,6 +14,7 @@ class ConvertToXmlHandler(Handler):
     def __init__(self) -> None:
         self.db_access = DbConnection()
         self.UPLOADS_FOLDER = EnviromentLoader.get_var("MAIN_DIR") + "/"
+        self.TEMP_FILE = self.UPLOADS_FOLDER + "temp"
 
     def get_name(self):
         return "upload_file_to_xml"
@@ -34,16 +35,16 @@ class ConvertToXmlHandler(Handler):
 
     def handle(self, file_name: str, csv_file: str):
         decoded_file = decode_file(csv_file)
+        result = create_temp_file(self.TEMP_FILE, decoded_file)
 
-        try:
-            store_file(os.path.join(self.UPLOADS_FOLDER, "work_file"), decoded_file)
-        except Exception as e:
-            print(e)
+        if not result:
             return self.send_error("Error converting to XML")
 
         try:
-            converter = CSVtoXMLConverter(os.path.join(self.UPLOADS_FOLDER, "work_file"), file_name)
+            converter = CSVtoXMLConverter(self.TEMP_FILE, file_name)
             xml_result = converter.to_xml_str()
+
+            delete_temp_file(self.TEMP_FILE)
         except Exception as e:
             print(e)
             return self.send_error("Error converting to XML")

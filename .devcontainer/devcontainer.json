@@ -5,6 +5,7 @@
 		"ghcr.io/devcontainers-contrib/features/fish-apt-get:1": {}
 	},
 	"forwardPorts": [9000],
+	"postCreateCommand": "pip install -r ./docker/images/python/requirements.txt",
 	"customizations": {
 		"vscode": {
 			"settings": {
