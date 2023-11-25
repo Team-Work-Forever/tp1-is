@@ -1,3 +1,5 @@
+import os
+
 from xmlrpc.client import ServerProxy
 
 from helpers import EnviromentLoader
@@ -20,6 +22,8 @@ class RPConnection():
             self.func_opts.append(handler.handle_function)
 
     def run_loop(self):
+        os.system("clear")
+        
         index = 0
         self.server = ServerProxy(f'http://{EnviromentLoader.get_var("RPC_SERVER_URL")}:9000')
 

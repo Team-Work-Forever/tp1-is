@@ -1,24 +1,25 @@
+<?xml version="1.0" ?>
 <WineReviews>
 	<Countries>
 		<Country id="country_1" name="Italy">
-			<Region id="region_1" region="Etna" province="Sicily &amp; Sardinia" lat="37.7510251" lon="14.9940321"/>
-			<Region id="region_6" region="Vittoria" province="Sicily &amp; Sardinia" lat="36.9514957" lon="14.5304867"/>
+			<Region id="region_1" region="Etna" province="Sicily &amp; Sardinia" lat="0" lon="0"/>
+			<Region id="region_6" region="Vittoria" province="Sicily &amp; Sardinia" lat="0" lon="0"/>
 		</Country>
 		<Country id="country_2" name="Portugal">
-			<Region id="region_2" region="" province="Douro" lat="39.6621648" lon="-8.1353519"/>
+			<Region id="region_2" region="" province="Douro" lat="0" lon="0"/>
 		</Country>
 		<Country id="country_3" name="US">
-			<Region id="region_3" region="Willamette Valley" province="Oregon" lat="44.67443045" lon="-123.05774148227209"/>
+			<Region id="region_3" region="Willamette Valley" province="Oregon" lat="0" lon="0"/>
 			<Region id="region_4" region="Lake Michigan Shore" province="Michigan" lat="0" lon="0"/>
-			<Region id="region_8" region="Napa Valley" province="California" lat="38.84847025" lon="-94.4130930172303"/>
-			<Region id="region_9" region="Alexander Valley" province="California" lat="38.6712308" lon="-122.8278697"/>
+			<Region id="region_8" region="Napa Valley" province="California" lat="0" lon="0"/>
+			<Region id="region_9" region="Alexander Valley" province="California" lat="0" lon="0"/>
 			<Region id="region_10" region="Central Coast" province="California" lat="0" lon="0"/>
 		</Country>
 		<Country id="country_4" name="Spain">
-			<Region id="region_5" region="Navarra" province="Northern Spain" lat="42.54084" lon="0.0316563"/>
+			<Region id="region_5" region="Navarra" province="Northern Spain" lat="0" lon="0"/>
 		</Country>
 		<Country id="country_5" name="France">
-			<Region id="region_7" region="Alsace" province="Alsace" lat="48.24917645" lon="7.4074699518555"/>
+			<Region id="region_7" region="Alsace" province="Alsace" lat="0" lon="0"/>
 		</Country>
 		<Country id="country_6" name="Germany"/>
 	</Countries>

@@ -25,4 +25,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN mkdir /data
 
-ENTRYPOINT python main.py prod
+ENTRYPOINT python main.py

@@ -8,7 +8,7 @@ from functions import load_handlers_by_assembly
 if len(sys.argv) > 1:
     enviroment = sys.argv[1]
 else:
-    enviroment = 'dev'
+    enviroment = 'prod'
 
 EnviromentLoader.load(enviroment)
 
