@@ -26,6 +26,6 @@ class GetCountries(Handler):
         
         except Exception as e:
             print(e)
-            return self.send_error("Is not possible to store the same file")
+            return self.send_error("Some error occurred while quering the requested data")
 
         return [value[0] for value in result]
