@@ -11,7 +11,7 @@ from .remove_record_handler import RemoveRecordHandler
 from .queries.get_the_best_rated_wines import GetTheBestRatedWinesHandler
 from .queries.get_country_regions import GetCountryRegions
 from .queries.get_countries import GetCountries
-from .queries.get_the_most_expensive_wines import GetTheMostExpensiveWines
+from .queries.get_number_reviews_winery import GetNumberReviewsToVinery
 from .queries.get_number_of_wines import GetNumberOfWinesByCountry
 from .queries.get_number_of_reviews_made_by_an_taster import GetNumberOfReviewsMadeByAnTaster
 from .queries.get_average_points_per_wine import GetAveragePointsPerWineHandler
@@ -48,7 +48,7 @@ __all__ = [
     "GetTheBestRatedWinesHandler",
     "GetCountryRegions",
     "GetCountries",
-    "GetTheMostExpensiveWines",
+    "GetNumberReviewsToVinery",
     "ValidateXMLFileHandler",
     "GetNumberOfWinesByCountry",
     "GetNumberOfReviewsMadeByAnTaster",
