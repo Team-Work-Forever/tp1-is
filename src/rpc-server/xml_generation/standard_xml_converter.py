@@ -132,9 +132,9 @@ class CSVtoXMLConverter:
 
     def to_xml_str(self, root_el: ET = None):
         xml = self.to_xml() if root_el is None else root_el
-        validator = XMLValidator(xml)
+        validator = XMLValidator()
 
-        if not validator.is_valid():
+        if not validator.is_valid(xml):
             raise Exception("Document is not valid!")
 
         xml_str = ET.tostring(xml, encoding='utf8', method='xml').decode()

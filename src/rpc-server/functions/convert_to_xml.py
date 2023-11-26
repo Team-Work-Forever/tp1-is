@@ -43,11 +43,13 @@ class ConvertToXmlHandler(Handler):
         try:
             converter = CSVtoXMLConverter(self.TEMP_FILE, file_name)
             xml_result = converter.to_xml_str()
-
-            delete_temp_file(self.TEMP_FILE)
+            
         except Exception as e:
             print(e)
             return self.send_error("Error converting to XML")
+        
+        finally:
+            delete_temp_file(self.TEMP_FILE)
 
         cursor = self.db_access.get_cursor()
 
