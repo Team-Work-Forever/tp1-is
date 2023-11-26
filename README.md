@@ -2,16 +2,18 @@
 
 ## Introduction ##
 
-Welcome to the Systems Integration Development Kit! This toolkit is specially designed to facilitate the setup of your development environment and manage dependencies effortlessly for the 1st assignment (TP1) in the Systems Integration class, part of the Informatics Engineering course at IPVC/ESTG.
+Neste trabalho prático de Integração de Sistemas de Informação, temos o objetivo de ``criar um sistema robusto baseado num código base fornecido pelos professores`` e ``configurado via Docker Compose``. Tivemos de escolher um dataset do ``Kaggle``, atendendo aos critérios necessários, converter esse dataset, em CSV, para um ficheiro XML e por fim criar um ``XML Schema para validação do XML criado``.
+O sistema inclui um servidor ``XMLRPC em Python``, que permite a ``conversão de dados de CSV`` para XML e a adição de informações de ``localização através das coordenadas GPS, utilizando uma API externa, a Nomination``. Foi criada a interação com um banco de dados ``PostgreSQL, onde são armazenados os XMLs`` fornecidos pelos clientes e onde serão executadas as queries.
+As queries permitem ao cliente executar consultas avançadas nas colunas XML, abrangendo pesquisa em texto, aplicação de filtros, agrupamento, ordenação e intercâmbio de informações entre diferentes níveis do documento XML.
 
 ## Debug Project ##
 
 1. Enter on devcontainer
-2. Execute the dockerfile, only `is-db` and `is-redis` services
+2. Execute the dockerfile, only `db` and `redis` services
 
 Run `is-db` and `is-redis` service
 ```sh
-  docker compose up --build -d is-db is-redis
+  docker compose up --build -d db redis
 ```
 
 Add those to the same network of the debug project
@@ -25,7 +27,8 @@ Add those to the same network of the debug project
 Finally run them separately, on `dev` environment
 ```sh
   python ./src/rpc-client/main.py dev
-
+```
+```sh
   python ./src/rpc-server/main.py dev
 ```
 
