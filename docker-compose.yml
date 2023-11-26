@@ -7,6 +7,13 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
+  
+  redis:
+    container_name: is-redis
+    image: redis/redis-stack:latest
+    ports:
+      - "6379:6379"
+      - "8001:8001"
 
   rpc-server:
     container_name: is-rpc-server
@@ -18,6 +25,7 @@ services:
       - 9000:9000
     depends_on:
       - db
+      - redis
 
   rpc-client:
     container_name: is-rpc-client

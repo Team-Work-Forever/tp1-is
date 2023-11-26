@@ -1,19 +1,20 @@
 import asyncio
 import xml.etree.ElementTree as ET
 
-from data import DbConnection
+from data import DbConnection, RedisConnection
 
 from multiprocessing import Process
 from .nominatim import NominatimApi
 
 class NominatimWorker(Process):
+    CACHE_PREFIX = 'nominatim_cache:'
     NOMINATIM_API = NominatimApi()
 
     def __init__(self, countries, regions, root_el: ET, converter) -> None:
         super().__init__()
-        NominatimWorker.CACHE_MAP = {}
 
         self._db_connection = DbConnection()
+        NominatimWorker._redis_connection = RedisConnection()
         self._countries = countries
         self._regions = regions
         self._root_el = root_el
@@ -21,23 +22,25 @@ class NominatimWorker(Process):
      
     @staticmethod
     def get_key(country, region):
-        return '-'.join([country, region])
+        return f'{NominatimWorker.CACHE_PREFIX}{country}-{region}'
 
     @staticmethod
     def insert_region(country, region, point):
         key = NominatimWorker.get_key(country, region)
 
-        if key not in NominatimWorker.CACHE_MAP:
-            NominatimWorker.CACHE_MAP[key] = [point]
+        if not NominatimWorker._redis_connection.get_value(key):
+            NominatimWorker._redis_connection.set_value(key, f'({float(point[0])},{float(point[1])})')
         else:
-            NominatimWorker.CACHE_MAP[key].append(point)
+            existing_value = NominatimWorker._redis_connection.get_value(key)
+            NominatimWorker._redis_connection.set_value(key, f'{existing_value},{point}')
 
     @staticmethod
     def get_region(country, region):
         key = NominatimWorker.get_key(country, region)
+        cached_value = NominatimWorker._redis_connection.get_value(key)
 
-        if key in NominatimWorker.CACHE_MAP:
-            NominatimWorker.CACHE_MAP[key]
+        if cached_value:
+            return str(cached_value)[1:-1].split(',')
         
         return None
 

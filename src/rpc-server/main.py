@@ -5,7 +5,7 @@ from helpers import EnviromentLoader
 from xmlrpc.server import SimpleXMLRPCServer
 from xmlrpc.server import SimpleXMLRPCRequestHandler
 
-from data import DbConnection
+from data import DbConnection, RedisConnection
 from functions import load_handlers_by_assembly
 
 if len(sys.argv) > 1:
@@ -14,6 +14,8 @@ else:
     enviroment = 'prod'
 
 EnviromentLoader.load(enviroment)
+
+redisAccess = RedisConnection()
 dbAccess = DbConnection()
 
 class RequestHandler(SimpleXMLRPCRequestHandler):
@@ -27,6 +29,8 @@ with SimpleXMLRPCServer(('0.0.0.0', 9000), requestHandler=RequestHandler) as ser
     def signal_handler(signum, frame):
         print("received signal")
         server.server_close()
+        
+        redisAccess.disconnect()
         dbAccess.disconnect()
 
         print("exiting, gracefully")
