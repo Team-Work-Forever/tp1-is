@@ -1,5 +1,4 @@
 import datetime
-import psycopg2
 from functions import Handler
 from data import DbConnection
 
@@ -27,7 +26,7 @@ class RemoveRecordHandler(Handler):
                 'delete_on': datetime.now()
             })
 
-        except psycopg2.errors.UniqueViolation as e:
+        except Exception as e:
             print(e)
             return self.send_error("Someting went wrong")
 

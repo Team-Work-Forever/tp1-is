@@ -1,23 +1,26 @@
+from utils import create_temp_file, delete_temp_file
+from helpers import EnviromentLoader
+
 from functions import Handler
 from xml_generation import CSVtoXMLConverter
 
-from utils import store_file
-
 class ValidateXMLFileHandler(Handler):
-    UPLOADS_FOLDER = "/data/"
+    def __init__(self) -> None:
+        self.UPLOADS_FOLDER = EnviromentLoader.get_var("MAIN_DIR") + "/"
+        self.TEMP_FILE = self.UPLOADS_FOLDER + "temp"
 
     def get_name(self):
         return "validate_xml_file"
 
     def handle(self, xml_file):
-        try:
-            store_file(self.UPLOADS_FOLDER + "work_file", xml_file)
-        except Exception as e:
-            print(e)
+        result = create_temp_file(self.TEMP_FILE, xml_file)
+
+        if not result:
             return self.send_error("Error converting to XML")
 
         try:
-            CSVtoXMLConverter(self.UPLOADS_FOLDER + "work_file")
+            CSVtoXMLConverter(self.TEMP_FILE)
+            delete_temp_file(self.TEMP_FILE)
         except Exception as e:
             print(e)
             return self.send_error("Error converting to XML")
