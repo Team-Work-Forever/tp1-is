@@ -16,7 +16,6 @@ class Console():
 
     def start(self):
         self.stdscr = curses.initscr()
-        # curses.cbreak()
         curses.noecho()
         self.stdscr.keypad(True)
 
@@ -44,9 +43,6 @@ class Console():
         self.stdscr.addstr(position[0], position[1], text)
 
     def dispose(self):
-        # curses.nocbreak()
         self.stdscr.keypad(False)
         curses.echo()
         curses.endwin()
-
-console = Console()
