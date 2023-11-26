@@ -1,4 +1,4 @@
-import os
+import xmlrpc.client
 from functions import Handler
 
 from helpers import EnviromentLoader
@@ -27,5 +27,7 @@ class ValidateXMLFileHandler(Handler):
             print(response)
         except FileNotFoundError as e:
             print("File not found!")
+        except xmlrpc.client.Fault as fault:
+            print(fault.faultString)
 
         input("Press enter")

@@ -6,7 +6,7 @@ from utils import MenuFactory
 
 class GetNumberReviewsVinery(Handler):
     def __init__(self) -> None:
-        super().__init__("Get Number of Reviews by Vinery")
+        super().__init__("Get Number of Reviews by Winery")
 
     def print_wine(self, wine):
         print(f"Winery - {wine[0]}")
@@ -36,7 +36,7 @@ class GetNumberReviewsVinery(Handler):
 
         while self.is_limit(limit):
             os.system("clear")
-            limit = input("Provide the number of wines that you want to fetch (default = 10): ")
+            limit = input("Provide the number of responses that you want to fetch (default = 10): ")
 
             if limit == '':
                 limit = '10'

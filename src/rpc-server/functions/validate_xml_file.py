@@ -1,4 +1,3 @@
-from utils import create_temp_file, delete_temp_file
 from helpers import EnviromentLoader
 
 from functions import Handler
@@ -21,6 +20,6 @@ class ValidateXMLFileHandler(Handler):
             
         except Exception as e:
             print(e)
-            return self.send_error("Error converting to XML")
+            return self.send_error(str(e))
 
         return "This XML file is valid"
