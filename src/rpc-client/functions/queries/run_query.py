@@ -3,7 +3,7 @@ import os
 from functions import Handler
 from utils import MenuFactory
 
-from .get_best_rated_wines import GetBestRatedWines
+from .get_most_expensive_wines import GetMostExpensiveWines
 from .get_country_regions import GetCountryRegions
 from .get_number_reviews_winery import GetNumberReviewsVinery
 from .get_number_of_wines_by_country import GetNumberOfWinesByCountry
@@ -14,7 +14,7 @@ from xmlrpc.client import ServerProxy
 
 class RunQuery(Handler):
     queries = [
-        GetBestRatedWines(),
+        GetMostExpensiveWines(),
         GetCountryRegions(),
         GetNumberReviewsVinery(),
         GetNumberOfWinesByCountry(),
